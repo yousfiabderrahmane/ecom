@@ -1,9 +1,14 @@
 @import '../../variables';
 
 .navbar{
-    max-width: 1200px;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 99;
+//    background-color: white;
     margin: 0 auto;
-    padding: 10px 20px;
+    padding: 5px 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,20 +16,22 @@
         font-family: $paragraphsFont;
         font-weight: bold;
         border: none;
-        font-size: 20px;
+        font-size: 15px;
         height: 70%;
         cursor: pointer;
+    color: white;
+
         background-color: transparent;
     }
     .logo{
         font-family: $titlesFont;
         font-weight: bold;
-        font-size: 26px;
+        font-size: 36px;
         color: $tertiaryColor;
     }
     .icon{
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         transition: all 0.4s;
     }
     .dropIcon{
@@ -34,7 +41,7 @@
     .middle{
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 40px;
     }
     .productsButtonContainer{
         position: relative;
@@ -48,9 +55,11 @@
     .dropDown{
         border: 2px solid $tertiaryColor;
         position: absolute;
-        bottom: -140px;
+        bottom: -110px;
         border-radius: 5px;
         padding: 5px;
+        // background-color: white;
+        
     }
     .dropdownBtn{
         transition: all 0.3s;
@@ -70,9 +79,10 @@
         .overlayInfo{
             position: absolute;
             transition: all 0.3s;
-            top: -3px;
+            top: -1px;
             right: -2px;
-            padding: 0px 5px;
+            padding: 0px 4px;
+            font-size: 12px;
             font-weight: bold;
             border: 2px solid black;
             color: white;
@@ -103,5 +113,17 @@
     100%{
         opacity:1;
 
+    }
+}
+
+.navbarScroll{
+    background-color: white;
+    padding: 15px 60px;
+
+    button{
+    color: black;
+    }
+    .dropDown{
+        background-color: white;
     }
 }

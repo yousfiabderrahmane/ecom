@@ -7,3 +7,10 @@ $quaternaryColor:  #40513B;
 //fonts
 $titlesFont: 'Pacifico', cursive;
 $paragraphsFont:'Poppins', sans-serif;
+
+//mixins
+@mixin container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}

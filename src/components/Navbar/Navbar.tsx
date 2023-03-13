@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactComponent as NavStar } from "../../assets/svg/nav-star.svg";
 import { ReactComponent as NavCart } from "../../assets/svg/nav-cart.svg";
 import { ReactComponent as DownArrow } from "../../assets/svg/arrow-down.svg";
@@ -9,17 +9,30 @@ const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 
 export const Navbar = () => {
   const [showList, setShowList] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<boolean | undefined>(false);
+
+  const changeNav = () => {
+    window.scrollY >= 20 ? setScroll(true) : setScroll(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNav);
+  }, []);
 
   return (
-    <nav className={styles.navbar}>
+    <nav
+      className={
+        scroll ? `${styles.navbar} ${styles.navbarScroll}` : styles.navbar
+      }
+    >
       <div className={styles.iconContainer}>
-        <NavStar className={styles.icon} />
+        <NavStar fill="white" className={styles.icon} />
         <span className={styles.overlayInfo}>3</span>
       </div>
       <div className={styles.middle}>
         <button className={styles.navButton}>HOME</button>
         <div
-          onMouseLeave={() => setShowList(false)}
+          // onMouseLeave={() => setShowList(false)}
           className={styles.productsButtonContainer}
         >
           <button onClick={() => setShowList(!showList)}>
@@ -27,7 +40,11 @@ export const Navbar = () => {
             <div className={styles.productsButton}>
               PRODUCTS{" "}
               {showList ? (
-                <UpArrow className={styles.dropIcon} />
+                <UpArrow
+                  fill="red"
+                  stroke="green"
+                  className={styles.dropIcon}
+                />
               ) : (
                 <DownArrow className={styles.dropIcon} />
               )}
@@ -49,7 +66,7 @@ export const Navbar = () => {
         <button className={styles.navButton}>SPECIALS</button>
       </div>
       <div className={styles.iconContainer}>
-        <NavCart className={styles.icon} />
+        <NavCart fill="white" className={styles.icon} />
         <span className={styles.overlayInfo}>2</span>
       </div>
     </nav>
