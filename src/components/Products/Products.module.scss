@@ -2,11 +2,62 @@
 
 .productsContainer {
   @include container();
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 20px;
 
+  .productsGridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
   .title {
     text-align: center;
     font-family: $titlesFont;
     font-size: 26px;
     color: $tertiaryColor;
+  }
+  .card {
+    overflow: hidden;
+    position: relative;
+    border: 2px solid $quaternaryColor;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &:hover {
+      .imageContainer {
+        img {
+          transform: scale(1.2);
+        }
+      }
+      .overlayInfo {
+        bottom: 0%;
+      }
+    }
+
+    .overlayInfo {
+      transition: all 0.3s;
+      position: absolute;
+      padding: 10px;
+      bottom: -100%;
+      background-color: rgba(96, 153, 102, 0.9);
+    }
+    .productTitle {
+      color: white;
+    }
+    .imageContainer {
+      height: 100%;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s;
+      }
+    }
   }
 }
