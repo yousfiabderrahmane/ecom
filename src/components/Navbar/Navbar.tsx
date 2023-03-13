@@ -12,7 +12,7 @@ export const Navbar = () => {
   const [scroll, setScroll] = useState<boolean | undefined>(false);
 
   const changeNav = () => {
-    window.scrollY >= 20 ? setScroll(true) : setScroll(false);
+    window.scrollY >= 5 ? setScroll(true) : setScroll(false);
   };
 
   useEffect(() => {

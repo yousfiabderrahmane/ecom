@@ -27,7 +27,7 @@ export const Services = () => {
       <h2 className={styles.title}>Our Services</h2>
       <div className={styles.cardContainer}>
         {services.map((service) => (
-          <div className={styles.card}>
+          <div key={service.name} className={styles.card}>
             <div>
               {service.name === "Order" ? (
                 <BoxIcon className={styles.cardIcon} />

@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.productsContainer {
+  @include container();
+
+  .title {
+    text-align: center;
+    font-family: $titlesFont;
+    font-size: 26px;
+    color: $tertiaryColor;
+  }
+}
