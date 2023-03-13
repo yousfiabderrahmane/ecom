@@ -1,0 +1,107 @@
+@import '../../variables';
+
+.navbar{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button{
+        font-family: $paragraphsFont;
+        font-weight: bold;
+        border: none;
+        font-size: 20px;
+        height: 70%;
+        cursor: pointer;
+        background-color: transparent;
+    }
+    .logo{
+        font-family: $titlesFont;
+        font-weight: bold;
+        font-size: 26px;
+        color: $tertiaryColor;
+    }
+    .icon{
+        width: 40px;
+        height: 40px;
+        transition: all 0.4s;
+    }
+    .dropIcon{
+        width: 20px;
+        height: 20px;
+    }
+    .middle{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .productsButtonContainer{
+        position: relative;
+        
+    }
+    .productsButton{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .dropDown{
+        border: 2px solid $tertiaryColor;
+        position: absolute;
+        bottom: -140px;
+        border-radius: 5px;
+        padding: 5px;
+    }
+    .dropdownBtn{
+        transition: all 0.3s;
+        &:hover{
+            color: $secondaryColor;
+        }
+    }
+    .navButton{
+        transition: all 0.2s;
+        &:hover{
+            transform: translateY(-3px);
+        }
+    }
+    .iconContainer{
+        position: relative;
+        cursor: pointer;
+        .overlayInfo{
+            position: absolute;
+            transition: all 0.3s;
+            top: -3px;
+            right: -2px;
+            padding: 0px 5px;
+            font-weight: bold;
+            border: 2px solid black;
+            color: white;
+            background-color: $tertiaryColor;
+            border-radius: 50%;
+            animation: show 0.2s ease-in-out forwards;
+        }
+        &:hover{
+            .icon{
+                fill: $primaryColor;
+                transform: translateY(-3px) rotate(20deg);
+            }
+            .overlayInfo{
+               display: none;
+            }
+        }
+    }
+}
+
+@keyframes show {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.5;
+
+    }
+    100%{
+        opacity:1;
+
+    }
+}
