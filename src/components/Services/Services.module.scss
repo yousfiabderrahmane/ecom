@@ -1,49 +1,52 @@
-@import '../../variables';
+@import "../../variables";
 
-.servicesContainer{
-    @include container() ;
+.servicesContainer {
+  @include container();
 
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-     .title{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  .title {
     text-align: center;
+    font-family: $titlesFont;
+    font-size: 26px;
+    color: $quaternaryColor;
+    span {
+      border: 3px solid $quaternaryColor;
+      padding: 5px 10px;
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
+  }
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 
-        font-family: $titlesFont;
-font-size: 26px;
+    .card {
+      border: 2px dashed $quaternaryColor;
+      border-radius: 3px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      .bot {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      .serviceName {
+        font-weight: bold;
         color: $tertiaryColor;
+      }
     }
-    .cardContainer{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-        
-        
-        .card{
-            border: 2px dashed $quaternaryColor ;
-            border-radius: 3px;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 50px;
-            .bot{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            .serviceName{
-                font-weight: bold;
-                color: $tertiaryColor;
-            }
-        }
-        .cardIcon{
-            height: 100px;
-            width: 100px;
-        }
-
+    .cardIcon {
+      height: 100px;
+      width: 100px;
     }
-    
+  }
 }

@@ -24,7 +24,9 @@ const services = [
 export const Services = () => {
   return (
     <section className={styles.servicesContainer}>
-      <h2 className={styles.title}>Our Services</h2>
+      <h2 className={styles.title}>
+        <span> Our Services</span>
+      </h2>
       <div className={styles.cardContainer}>
         {services.map((service) => (
           <div key={service.name} className={styles.card}>

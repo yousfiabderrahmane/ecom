@@ -1,5 +1,7 @@
 import { useAppSelector } from "../../redux/hooks";
 import styles from "./Products.module.scss";
+import { ReactComponent as Star } from "../../assets/svg/star.svg";
+import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
 
 export const Products = () => {
   const products = useAppSelector((state) => state.products.products);
@@ -8,7 +10,9 @@ export const Products = () => {
 
   return (
     <section className={styles.productsContainer}>
-      <h2 className={styles.title}>Our Products</h2>
+      <h2 className={styles.title}>
+        <span> Our Products</span>
+      </h2>
 
       {isLoading && <h3>Loading ...</h3>}
       {error && <h3>We've got a problem chief !</h3>}
@@ -21,8 +25,8 @@ export const Products = () => {
                 <img src={product.image} alt="product" />
               </div>
               <div className={styles.overlayInfo}>
-                <p className={styles.productTitle}>{product.title}</p>
-                <p>Rate : {product.rating.rate} / 5</p>
+                <Eye className={styles.icon} />
+                <Star className={styles.icon} />
               </div>
             </div>
           ))}

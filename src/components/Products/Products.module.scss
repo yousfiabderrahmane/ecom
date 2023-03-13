@@ -9,42 +9,66 @@
 
   .productsGridContainer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
   }
   .title {
     text-align: center;
     font-family: $titlesFont;
     font-size: 26px;
-    color: $tertiaryColor;
+    color: $quaternaryColor;
+    span {
+      border: 3px solid $quaternaryColor;
+      padding: 5px 10px;
+      border-top-right-radius: 25px;
+      border-top-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+    }
   }
   .card {
+    height: 300px;
     overflow: hidden;
     position: relative;
-    border: 2px solid $quaternaryColor;
+    border: 3px solid $tertiaryColor;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
 
+    .icon {
+      height: 40px;
+      transition: all 0.2s;
+      width: 40px;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
     &:hover {
       .imageContainer {
         img {
           transform: scale(1.2);
+          filter: brightness(70%);
         }
       }
       .overlayInfo {
-        bottom: 0%;
+        left: 0%;
       }
     }
 
     .overlayInfo {
       transition: all 0.3s;
       position: absolute;
-      padding: 10px;
-      bottom: -100%;
-      background-color: rgba(96, 153, 102, 0.9);
+      padding: 10px 0px;
+      width: 100%;
+      left: -100%;
+      bottom: 0;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
     .productTitle {
       color: white;
