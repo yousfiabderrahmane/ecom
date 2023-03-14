@@ -2,6 +2,7 @@ import { useAppSelector } from "../../redux/hooks";
 import styles from "./Products.module.scss";
 import { ReactComponent as Star } from "../../assets/svg/star.svg";
 import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
+import { Product } from "../Product/Product";
 
 export const Products = () => {
   const products = useAppSelector((state) => state.products.products);
@@ -20,15 +21,7 @@ export const Products = () => {
       {products.length > 0 && (
         <div className={styles.productsGridContainer}>
           {products.map((product) => (
-            <div className={styles.card}>
-              <div className={styles.imageContainer}>
-                <img src={product.image} alt="product" />
-              </div>
-              <div className={styles.overlayInfo}>
-                <Eye className={styles.icon} />
-                <Star className={styles.icon} />
-              </div>
-            </div>
+            <Product product={product} />
           ))}
         </div>
       )}

@@ -31,6 +31,8 @@ export const Navbar = () => {
       </div>
       <div className={styles.middle}>
         <button className={styles.navButton}>HOME</button>
+        <h1 className={styles.logo}>AyShop</h1>
+
         <div
           // onMouseLeave={() => setShowList(false)}
           className={styles.productsButtonContainer}
@@ -62,8 +64,6 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-        <h1 className={styles.logo}>AyShop</h1>
-        <button className={styles.navButton}>SPECIALS</button>
       </div>
       <div className={styles.iconContainer}>
         <NavCart fill="white" className={styles.icon} />
