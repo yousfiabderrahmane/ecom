@@ -1,0 +1,54 @@
+@import "../../variables";
+
+.newsContainer {
+  @include container();
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    span {
+      color: $tertiaryColor;
+      font-weight: bold;
+    }
+  }
+  .right {
+    width: 30%;
+    position: relative;
+    .rightInputContainer {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border: 2px solid $quaternaryColor;
+      input {
+        width: 100%;
+        border: 0;
+        padding-left: 10px;
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      button {
+        border: 0;
+        color: white;
+        background-color: $quaternaryColor;
+        font-weight: bold;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    }
+    .info {
+      width: 100%;
+      position: absolute;
+      top: -50px;
+      left: 0;
+      span {
+        color: $quaternaryColor;
+      }
+    }
+  }
+}
