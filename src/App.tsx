@@ -1,20 +1,9 @@
-import { Home } from "./components/Home/Home";
-import { Navbar } from "./components/Navbar/Navbar";
-import { Newsletter } from "./components/Newsletter/Newsletter";
-import { Products } from "./components/Products/Products";
-import { Repair } from "./components/Repair/Repair";
-import { Services } from "./components/Services/Services";
-import { useAppSelector } from "./redux/hooks";
+import { Landing } from "./pages/Landing";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Home />
-      <Services />
-      <Products />
-      <Repair />
-      <Newsletter />
+      <Landing />
     </div>
   );
 }

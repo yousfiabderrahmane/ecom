@@ -2,6 +2,7 @@ import { ReactComponent as BoxIcon } from "../../assets/svg/box.svg";
 import { ReactComponent as DeliveryIcon } from "../../assets/svg/delivery.svg";
 import { ReactComponent as ShippingIcon } from "../../assets/svg/shipping.svg";
 import styles from "./Services.module.scss";
+import { AnimationOnScroll } from "react-animation-on-scroll";
 
 const services = [
   {
@@ -23,31 +24,33 @@ const services = [
 
 export const Services = () => {
   return (
-    <section className={styles.servicesContainer}>
-      <h2 className={styles.title}>
-        <span> Our Services</span>
-      </h2>
-      <div className={styles.cardContainer}>
-        {services.map((service) => (
-          <div key={service.name} className={styles.card}>
-            <div>
-              {service.name === "Order" ? (
-                <BoxIcon className={styles.cardIcon} />
-              ) : service.name === "Shipping" ? (
-                <ShippingIcon className={styles.cardIcon} />
-              ) : (
-                <DeliveryIcon className={styles.cardIcon} />
-              )}
+    <AnimationOnScroll animateIn="animate__slideInLeft" animateOnce>
+      <section className={styles.servicesContainer}>
+        <h2 className={styles.title}>
+          <span> Our Services</span>
+        </h2>
+        <div className={styles.cardContainer}>
+          {services.map((service) => (
+            <div key={service.name} className={styles.card}>
+              <div>
+                {service.name === "Order" ? (
+                  <BoxIcon className={styles.cardIcon} />
+                ) : service.name === "Shipping" ? (
+                  <ShippingIcon className={styles.cardIcon} />
+                ) : (
+                  <DeliveryIcon className={styles.cardIcon} />
+                )}
+              </div>
+              <div className={styles.bot}>
+                <p className={styles.serviceName}>{service.name}</p>
+                <p className={styles.serviceDescvription}>
+                  {service.description}
+                </p>
+              </div>
             </div>
-            <div className={styles.bot}>
-              <p className={styles.serviceName}>{service.name}</p>
-              <p className={styles.serviceDescvription}>
-                {service.description}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </AnimationOnScroll>
   );
 };

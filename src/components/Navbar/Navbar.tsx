@@ -31,7 +31,7 @@ export const Navbar = () => {
     <nav
       className={
         scroll
-          ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__fadeIn`
+          ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__zoomIn`
           : `${styles.navbar} animate__animated animate__zoomIn`
       }
     >

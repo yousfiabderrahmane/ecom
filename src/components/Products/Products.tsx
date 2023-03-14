@@ -9,26 +9,27 @@ import womenBg from "../../assets/images/womenClothing.jpg";
 import menBg from "../../assets/images/menClothing.jpg";
 import jeweleryBg from "../../assets/images/jewelery.jpg";
 import electronicsBg from "../../assets/images/electronics.jpg";
+import { AnimationOnScroll } from "react-animation-on-scroll/dist/js/components";
 
 export const Products = () => {
   const products = useAppSelector((state) => state.products.products);
-  const isLoading = useAppSelector((state) => state.products.isLoading);
-  const error = useAppSelector((state) => state.products.error);
+  // const isLoading = useAppSelector((state) => state.products.isLoading);
+  // const error = useAppSelector((state) => state.products.error);
 
-  const filter = useAppSelector(selectFilter);
+  // const filter = useAppSelector(selectFilter);
 
-  const jewelery = products.filter(
-    (product) => product.category === "jewelery"
-  );
-  const electronics = products.filter(
-    (product) => product.category === "electronics"
-  );
-  const men = products.filter(
-    (product) => product.category === "men's clothing"
-  );
-  const women = products.filter(
-    (product) => product.category === "women's clothing"
-  );
+  // const jewelery = products.filter(
+  //   (product) => product.category === "jewelery"
+  // );
+  // const electronics = products.filter(
+  //   (product) => product.category === "electronics"
+  // );
+  // const men = products.filter(
+  //   (product) => product.category === "men's clothing"
+  // );
+  // const women = products.filter(
+  //   (product) => product.category === "women's clothing"
+  // );
 
   return (
     <section className={styles.productsContainer}>
@@ -36,25 +37,31 @@ export const Products = () => {
         <span> Our Products</span>
       </h2>
 
-      <div className={styles.angryGrid}>
-        <div className={styles.a}>
-          <img className={styles.image} src={jeweleryBg} alt="jewelery" />
-          <button className={styles.redirectBtn}>Jewelery</button>
+      <AnimationOnScroll animateIn="animate__zoomIn" animateOnce>
+        <div className={styles.angryGrid}>
+          <div className={styles.a}>
+            <img className={styles.image} src={jeweleryBg} alt="jewelery" />
+            <button className={styles.redirectBtn}>Jewelery</button>
+          </div>
+          <div className={styles.b}>
+            {" "}
+            <img className={styles.image} src={womenBg} alt="women" />
+            <button className={styles.redirectBtn}>Women</button>
+          </div>
+          <div className={styles.c}>
+            <img
+              className={styles.image}
+              src={electronicsBg}
+              alt="electronics"
+            />
+            <button className={styles.redirectBtn}>Electronics</button>
+          </div>
+          <div className={styles.d}>
+            <img className={styles.image} src={menBg} alt="men" />
+            <button className={styles.redirectBtn}>Men</button>
+          </div>
         </div>
-        <div className={styles.b}>
-          {" "}
-          <img className={styles.image} src={womenBg} alt="women" />
-          <button className={styles.redirectBtn}>Women</button>
-        </div>
-        <div className={styles.c}>
-          <img className={styles.image} src={electronicsBg} alt="electronics" />
-          <button className={styles.redirectBtn}>Electronics</button>
-        </div>
-        <div className={styles.d}>
-          <img className={styles.image} src={menBg} alt="men" />
-          <button className={styles.redirectBtn}>Men</button>
-        </div>
-      </div>
+      </AnimationOnScroll>
 
       {/* <Filter />
       {isLoading && <h3>Loading ...</h3>}
