@@ -1,3 +1,4 @@
+import { product } from "./types";
 import { call, takeLatest, put } from "redux-saga/effects";
 import {
   getProductsRequested,
@@ -12,11 +13,14 @@ function* getProductsWorker(): any {
     const response = yield call(getProducts);
     if (response.ok) {
       const data = yield response.json();
-
       const shuffledData = data.sort(() => {
         return Math.random() - 0.5;
       });
-      yield put(getProductsSucces(shuffledData));
+      const products = shuffledData.map((product: product) => {
+        return { ...product, isFavorite: false };
+      });
+
+      yield put(getProductsSucces(products));
     }
   } catch (error: any) {
     yield put(getProductsFail(error.message));

@@ -9,10 +9,14 @@ export type product = {
     rate: number;
     count: number;
   };
+  isFavorite: boolean;
 };
 
 export interface ProducstInitialType {
   products: product[];
   isLoading: boolean;
   error: null | string;
+  favoriteProducts: product[];
+  cart: product[];
+  filter: string;
 }

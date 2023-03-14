@@ -14,8 +14,16 @@ export const Home = () => {
 
       <div className={styles.content}>
         <div>
-          <h1 className={styles.homeTitle}>Welcome To AyShop</h1>
-          <p className={styles.subInfo}>Keep The Summer Vibe Alive</p>
+          <h1
+            className={`${styles.homeTitle} animate__animated animate__fadeInDown`}
+          >
+            Welcome To AyShop
+          </h1>
+          <p
+            className={`${styles.subInfo} animate__animated animate__fadeInDown animate__delay-1s`}
+          >
+            Keep The Summer Vibe Alive
+          </p>
         </div>
 
         <div>

@@ -4,12 +4,20 @@ import { ReactComponent as NavCart } from "../../assets/svg/nav-cart.svg";
 import { ReactComponent as DownArrow } from "../../assets/svg/arrow-down.svg";
 import { ReactComponent as UpArrow } from "../../assets/svg/arrow-up.svg";
 import styles from "./Navbar.module.scss";
+import { useAppSelector } from "../../redux/hooks";
+import {
+  selectCart,
+  selectFavorites,
+} from "../../redux/products/productsSlice";
 
 const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 
 export const Navbar = () => {
   const [showList, setShowList] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean | undefined>(false);
+
+  const cart = useAppSelector(selectCart);
+  const favoriteList = useAppSelector(selectFavorites);
 
   const changeNav = () => {
     window.scrollY >= 5 ? setScroll(true) : setScroll(false);
@@ -22,12 +30,14 @@ export const Navbar = () => {
   return (
     <nav
       className={
-        scroll ? `${styles.navbar} ${styles.navbarScroll}` : styles.navbar
+        scroll
+          ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__fadeIn`
+          : `${styles.navbar} animate__animated animate__zoomIn`
       }
     >
       <div className={styles.iconContainer}>
         <NavStar fill="white" className={styles.icon} />
-        <span className={styles.overlayInfo}>3</span>
+        <span className={styles.overlayInfo}>{favoriteList.length}</span>
       </div>
       <div className={styles.middle}>
         <button className={styles.navButton}>HOME</button>
@@ -67,7 +77,7 @@ export const Navbar = () => {
       </div>
       <div className={styles.iconContainer}>
         <NavCart fill="white" className={styles.icon} />
-        <span className={styles.overlayInfo}>2</span>
+        <span className={styles.overlayInfo}>{cart.length}</span>
       </div>
     </nav>
   );
