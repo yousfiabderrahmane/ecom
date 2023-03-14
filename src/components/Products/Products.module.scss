@@ -26,3 +26,62 @@
     }
   }
 }
+
+.angryGrid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col3-end];
+  grid-template-rows: [row1-start] 300px [row2-start] 300px [row2-end];
+  background-color: #fff;
+  color: #444;
+  justify-content: center;
+  width: 100%;
+  div {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover img {
+      filter: brightness(100%);
+      transform: scale(1.2);
+    }
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+      filter: brightness(80%) blur(2px);
+      transition: all 0.5s;
+    }
+    .redirectBtn {
+      position: absolute;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: $secondaryColor;
+      color: $quaternaryColor;
+      border: 2px solid $quaternaryColor;
+      font-weight: bold;
+    }
+  }
+}
+
+.a {
+  grid-column: col1-start / col3-start;
+  grid-row: row1-start;
+}
+.b {
+  grid-column: col3-start;
+  grid-row: row1-start / row2-end;
+}
+.c {
+  grid-column: col1-start;
+  grid-row: row2-start;
+}
+.d {
+  grid-column: col2-start;
+
+  grid-row: row2-start;
+}

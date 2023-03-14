@@ -5,6 +5,10 @@ import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
 import { Product } from "../Product/Product";
 import { Filter } from "../Filter/Filter";
 import { selectFilter } from "../../redux/products/productsSlice";
+import womenBg from "../../assets/images/womenClothing.jpg";
+import menBg from "../../assets/images/menClothing.jpg";
+import jeweleryBg from "../../assets/images/jewelery.jpg";
+import electronicsBg from "../../assets/images/electronics.jpg";
 
 export const Products = () => {
   const products = useAppSelector((state) => state.products.products);
@@ -32,7 +36,27 @@ export const Products = () => {
         <span> Our Products</span>
       </h2>
 
-      <Filter />
+      <div className={styles.angryGrid}>
+        <div className={styles.a}>
+          <img className={styles.image} src={jeweleryBg} alt="jewelery" />
+          <button className={styles.redirectBtn}>Jewelery</button>
+        </div>
+        <div className={styles.b}>
+          {" "}
+          <img className={styles.image} src={womenBg} alt="women" />
+          <button className={styles.redirectBtn}>Women</button>
+        </div>
+        <div className={styles.c}>
+          <img className={styles.image} src={electronicsBg} alt="electronics" />
+          <button className={styles.redirectBtn}>Electronics</button>
+        </div>
+        <div className={styles.d}>
+          <img className={styles.image} src={menBg} alt="men" />
+          <button className={styles.redirectBtn}>Men</button>
+        </div>
+      </div>
+
+      {/* <Filter />
       {isLoading && <h3>Loading ...</h3>}
       {error && <h3>We've got a problem chief !</h3>}
 
@@ -61,7 +85,7 @@ export const Products = () => {
               <Product key={product.id} product={product} />
             ))}
         </div>
-      )}
+      )} */}
     </section>
   );
 };
