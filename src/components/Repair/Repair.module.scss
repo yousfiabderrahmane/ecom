@@ -1,0 +1,46 @@
+@import "../../variables";
+
+.repairContainer {
+  height: 300px;
+  margin: 40px 0px;
+  max-width: 1800px;
+  margin: 40px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .bg {
+    background-color: $quaternaryColor;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .content {
+    position: absolute;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-weight: bold;
+    h1 {
+      font-family: $titlesFont;
+      font-size: 30px;
+      span {
+        color: $secondaryColor;
+      }
+    }
+    button {
+      padding: 5px 10px;
+      font-size: 20px;
+      background-color: white;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.5s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
