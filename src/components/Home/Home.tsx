@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import BackGroundImage from "../../assets/images/home-background.jpg";
 import styles from "./Home.module.scss";
 import { Link } from "react-router-dom";
@@ -6,11 +7,19 @@ export const Home = () => {
   return (
     <section className={styles.homeContainer}>
       <div className={styles.bgContainer}>
-        <img
+        <LazyLoadImage
+          alt={"bghome"}
+          effect="blur"
+          src={BackGroundImage}
+          placeholderSrc={BackGroundImage}
+          wrapperClassName={styles.BackGroundImage}
+        />
+        {/* <img
+          loading="lazy"
           className={styles.backgroundImg}
           src={BackGroundImage}
           alt="background"
-        />
+        /> */}
       </div>
 
       <div className={styles.content}>

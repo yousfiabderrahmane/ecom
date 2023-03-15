@@ -1,12 +1,25 @@
 import React from "react";
 import styles from "./ShopHome.module.scss";
 import shopBg from "../../assets/images/shopBg.jpg";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 export const ShopHome = () => {
   return (
     <section className={styles.homeContainer}>
       <div className={styles.bgContainer}>
-        <img className={styles.backgroundImg} src={shopBg} alt="background" />
+        <LazyLoadImage
+          wrapperClassName={styles.backgroundImg}
+          src={shopBg}
+          alt="background"
+          placeholderSrc={shopBg}
+          effect="blur"
+        />
+        {/* <img
+          loading="lazy"
+          className={styles.backgroundImg}
+          src={shopBg}
+          alt="background"
+        /> */}
       </div>
 
       <div className={styles.content}>
