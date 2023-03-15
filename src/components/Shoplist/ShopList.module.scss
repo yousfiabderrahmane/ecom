@@ -19,4 +19,12 @@
     gap: 30px;
     padding: 20px;
   }
+  .loading {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 50px;
+    color: $quaternaryColor;
+    margin-top: 20px;
+  }
 }

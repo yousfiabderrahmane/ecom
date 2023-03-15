@@ -78,9 +78,9 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
 
   return (
     <>
-      {!isLoading && <h1 className={styles.loading}>Loading ...</h1>}
+      {isLoading && <h1 className={styles.loading}>Loading ...</h1>}
       <section className={styles.contentContainer}>
-        {isLoading && sortedArr.length > 0
+        {!isLoading && sortedArr.length > 0
           ? sortedArr.map((product) => <Product product={product} />)
           : thisProducts.map((product) => <Product product={product} />)}
       </section>

@@ -1,5 +1,9 @@
-import { useAppSelector } from "../../redux/hooks";
-import { selectFilter } from "../../redux/products/productsSlice";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import {
+  getProductsRequested,
+  selectFilter,
+} from "../../redux/products/productsSlice";
 import { Filter } from "../Filter/Filter";
 import { Product } from "../Product/Product";
 import styles from "./ShopList.module.scss";
@@ -8,6 +12,8 @@ export const ShopList = () => {
   const products = useAppSelector((state) => state.products.products);
   const isLoading = useAppSelector((state) => state.products.isLoading);
   const error = useAppSelector((state) => state.products.error);
+
+  const dispatch = useAppDispatch();
 
   const filter = useAppSelector(selectFilter);
 
@@ -23,12 +29,18 @@ export const ShopList = () => {
   const women = products.filter(
     (product) => product.category === "women's clothing"
   );
+
+  useEffect(() => {
+    dispatch(getProductsRequested());
+  }, []);
   return (
     <section className={styles.shopListContainer}>
       <div className={styles.shopList}>
         <Filter />
-        {isLoading && <h3>Loading ...</h3>}
-        {error && <h3>We've got a problem chief !</h3>}
+        {isLoading && <h3 className={styles.loading}>Loading ...</h3>}
+        {error && (
+          <h3 className={styles.loading}>We've got a problem chief !</h3>
+        )}
 
         {products.length > 0 && (
           <div

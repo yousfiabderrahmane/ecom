@@ -11,6 +11,9 @@ interface CategoryProps {
 }
 
 export const Category = ({ category }: CategoryProps) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   //state
   const products = useAppSelector(selectAllProducts);
   const [showMode, setShowMode] = useState<string>("dots");
