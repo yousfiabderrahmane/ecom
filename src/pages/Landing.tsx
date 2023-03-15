@@ -5,6 +5,7 @@ import { Services } from "../components/Services/Services";
 import { Products } from "../components/Products/Products";
 import { Repair } from "../components/Repair/Repair";
 import { Newsletter } from "../components/Newsletter/Newsletter";
+import { Footer } from "../components/Footer/Footer";
 
 export const Landing = () => {
   return (
@@ -15,6 +16,7 @@ export const Landing = () => {
       <Products />
       <Repair />
       <Newsletter />
+      <Footer />
     </>
   );
 };

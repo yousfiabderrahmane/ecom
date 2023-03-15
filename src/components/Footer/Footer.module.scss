@@ -1,0 +1,112 @@
+@import "../../variables";
+
+.footer {
+  background-color: $primaryColor;
+  position: relative;
+
+  .logo {
+    position: absolute;
+    top: 0px;
+    left: 5px;
+    font-size: 30px;
+    font-family: $titlesFont;
+    font-weight: bold;
+    filter: drop-shadow(0px 0px 5px $secondaryColor);
+    // transform: rotate(-90deg);
+  }
+
+  .footerContainer {
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 30px;
+    align-items: flex-start;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      h1 {
+        color: $quaternaryColor;
+        position: relative;
+        &:after {
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          content: "";
+          width: 20%;
+          height: 3px;
+          background: $quaternaryColor;
+        }
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        p {
+          display: flex;
+          gap: 20px;
+        }
+        span {
+          color: $tertiaryColor;
+        }
+      }
+    }
+
+    .iconContainer {
+      display: flex;
+      gap: 30px;
+    }
+    .contactIcon {
+      height: 100%;
+      width: 30px;
+      cursor: pointer;
+      transform: scale(1.7);
+    }
+    .youtube {
+      transition: all 0.4s;
+      transform: scale(1.6);
+      &:hover {
+        fill: red;
+        transform: scale(1.7);
+      }
+    }
+
+    .linkedIn {
+      transition: all 0.4s;
+      &:hover {
+        fill: #0077b5;
+        transform: scale(1.8);
+      }
+    }
+    .facebook {
+      transition: all 0.4s;
+      &:hover {
+        fill: #3b5998;
+        transform: scale(1.8);
+      }
+    }
+    .instagram {
+      transition: transform 0.4s;
+      transform: scale(1.5);
+      &:hover {
+        path {
+          transition: all 0.2s;
+        }
+        path:nth-child(2n + 1) {
+          fill: #e6adb7;
+        }
+        fill: #fff;
+        transform: scale(1.6);
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+    padding: 10px;
+    color: $quaternaryColor;
+    font-weight: bold;
+  }
+}

@@ -37,7 +37,9 @@ export const Navbar = () => {
     >
       <div className={styles.iconContainer}>
         <NavStar fill="white" className={styles.icon} />
-        <span className={styles.overlayInfo}>{favoriteList.length}</span>
+        {favoriteList.length > 0 && (
+          <span className={styles.overlayInfo}>{favoriteList.length}</span>
+        )}
       </div>
       <div className={styles.middle}>
         <button className={styles.navButton}>HOME</button>
@@ -77,7 +79,9 @@ export const Navbar = () => {
       </div>
       <div className={styles.iconContainer}>
         <NavCart fill="white" className={styles.icon} />
-        <span className={styles.overlayInfo}>{cart.length}</span>
+        {cart.length > 0 && (
+          <span className={styles.overlayInfo}>{cart.length}</span>
+        )}
       </div>
     </nav>
   );

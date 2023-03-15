@@ -1,16 +1,16 @@
 //styling colors
-$primaryColor:  #EDF1D6;
-$secondaryColor:  #9DC08B;
-$tertiaryColor:  #609966;
-$quaternaryColor:  #40513B;
+$primaryColor: #edf1d6;
+$secondaryColor: #9dc08b;
+$tertiaryColor: #609966;
+$quaternaryColor: #40513b;
 
 //fonts
-$titlesFont: 'Pacifico', cursive;
-$paragraphsFont:'Poppins', sans-serif;
+$titlesFont: "Pacifico", cursive;
+$paragraphsFont: "Poppins", sans-serif;
 
 //mixins
 @mixin container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
