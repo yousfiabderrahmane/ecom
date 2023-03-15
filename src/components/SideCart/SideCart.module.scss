@@ -1,0 +1,61 @@
+@import "../../variables";
+
+.sideCartOverlay {
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.sideCart {
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  background-color: $primaryColor;
+  height: 100vh;
+  animation: slideOut 0.2s ease-in-out forwards;
+  .closeIcon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+    fill: red;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 50%;
+  }
+  .cartItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+.sideCartOpen {
+  display: block;
+  animation: slideIn 0.2s ease-in-out forwards;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0vw;
+  }
+  100% {
+    width: 30vw;
+  }
+}
+@keyframes slideOut {
+  0% {
+    width: 30vw;
+  }
+  100% {
+    width: 0vw;
+  }
+}

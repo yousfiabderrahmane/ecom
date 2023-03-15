@@ -1,0 +1,69 @@
+@import "../../variables";
+
+.cartItem {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  width: 90%;
+  background-color: white;
+  border: 2px solid $tertiaryColor;
+  border-radius: 10px;
+  height: 200px;
+
+  .itemLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    .imageContainer {
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  .itemRight {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    .itemInfo {
+      .name {
+        font-weight: bold;
+        color: $secondaryColor;
+      }
+    }
+    .quantityButtons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      p {
+        font-size: 20px;
+      }
+      button {
+        padding: 0px 5px;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid $tertiaryColor;
+        border-radius: 5px;
+        background-color: $primaryColor;
+        color: $tertiaryColor;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

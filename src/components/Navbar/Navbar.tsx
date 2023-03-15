@@ -9,12 +9,17 @@ import {
   selectCart,
   selectFavorites,
 } from "../../redux/products/productsSlice";
+import { SideCart } from "../SideCart/SideCart";
 
 const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 
 export const Navbar = () => {
   const [showList, setShowList] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean | undefined>(false);
+
+  //sidebar
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [canShow, setCanShow] = useState(false);
 
   const cart = useAppSelector(selectCart);
   const favoriteList = useAppSelector(selectFavorites);
@@ -28,61 +33,70 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={
-        scroll
-          ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__zoomIn`
-          : `${styles.navbar} animate__animated animate__zoomIn`
-      }
-    >
-      <div className={styles.iconContainer}>
-        <NavStar fill="white" className={styles.icon} />
-        {favoriteList.length > 0 && (
-          <span className={styles.overlayInfo}>{favoriteList.length}</span>
-        )}
-      </div>
-      <div className={styles.middle}>
-        <button className={styles.navButton}>HOME</button>
-        <h1 className={styles.logo}>AyShop</h1>
-
-        <div
-          // onMouseLeave={() => setShowList(false)}
-          className={styles.productsButtonContainer}
-        >
-          <button onClick={() => setShowList(!showList)}>
-            {" "}
-            <div className={styles.productsButton}>
-              PRODUCTS{" "}
-              {showList ? (
-                <UpArrow
-                  fill="red"
-                  stroke="green"
-                  className={styles.dropIcon}
-                />
-              ) : (
-                <DownArrow className={styles.dropIcon} />
-              )}
-            </div>
-          </button>
-
-          {showList && (
-            <div className={styles.dropDown}>
-              {" "}
-              {productsList.map((product) => (
-                <button className={styles.dropdownBtn} key={product}>
-                  {product}
-                </button>
-              ))}
-            </div>
+    <>
+      <nav
+        className={
+          scroll
+            ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__zoomIn`
+            : `${styles.navbar} animate__animated animate__zoomIn`
+        }
+      >
+        <div className={styles.iconContainer}>
+          <NavStar fill="white" className={styles.icon} />
+          {favoriteList.length > 0 && (
+            <span className={styles.overlayInfo}>{favoriteList.length}</span>
           )}
         </div>
-      </div>
-      <div className={styles.iconContainer}>
-        <NavCart fill="white" className={styles.icon} />
-        {cart.length > 0 && (
-          <span className={styles.overlayInfo}>{cart.length}</span>
-        )}
-      </div>
-    </nav>
+        <div className={styles.middle}>
+          <button className={styles.navButton}>HOME</button>
+          <h1 className={styles.logo}>AyShop</h1>
+
+          <div
+            // onMouseLeave={() => setShowList(false)}
+            className={styles.productsButtonContainer}
+          >
+            <button onClick={() => setShowList(!showList)}>
+              {" "}
+              <div className={styles.productsButton}>
+                PRODUCTS{" "}
+                {showList ? (
+                  <UpArrow
+                    fill="red"
+                    stroke="green"
+                    className={styles.dropIcon}
+                  />
+                ) : (
+                  <DownArrow className={styles.dropIcon} />
+                )}
+              </div>
+            </button>
+
+            {showList && (
+              <div className={styles.dropDown}>
+                {" "}
+                {productsList.map((product) => (
+                  <button className={styles.dropdownBtn} key={product}>
+                    {product}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+        <div
+          onClick={() => {
+            setIsOpen(!isOpen);
+            setCanShow(true);
+          }}
+          className={styles.iconContainer}
+        >
+          <NavCart fill="white" className={styles.icon} />
+          {cart.products.length > 0 && (
+            <span className={styles.overlayInfo}>{cart.products.length}</span>
+          )}
+        </div>
+      </nav>
+      {canShow && <SideCart setIsOpen={setIsOpen} isOpen={isOpen} />}
+    </>
   );
 };

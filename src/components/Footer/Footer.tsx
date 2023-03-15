@@ -36,8 +36,37 @@ export const Footer = () => {
 
         <div className={styles.section}>
           <h1>Media</h1>
+          <div className={styles.content}>
+            <p>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/yousfiabderrahmane"
+              >
+                <span>Github</span>
+              </a>
+            </p>
+            <p>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.linkedin.com/in/abderrahmane-yousfi-661628260/"
+              >
+                <span>LinkedIn</span>
+              </a>
+            </p>
 
-          <div className={styles.iconContainer}>
+            <p>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href=" https://www.instagram.com/yousfi_3/"
+              >
+                <span>Instagram</span>
+              </a>
+            </p>
+          </div>
+          {/* <div className={styles.iconContainer}>
             <InstagramLogo
               className={`${styles.contactIcon} ${styles.instagram}`}
             />
@@ -51,7 +80,7 @@ export const Footer = () => {
             <FacebookLogo
               className={`${styles.contactIcon} ${styles.facebook}`}
             />
-          </div>
+          </div> */}
         </div>
       </div>
 

@@ -10,6 +10,13 @@ export type product = {
     count: number;
   };
   isFavorite: boolean;
+  quantity: number;
+};
+
+export type cartType = {
+  products: product[];
+  totalItems: number;
+  totalPrice: number;
 };
 
 export interface ProducstInitialType {
@@ -17,6 +24,6 @@ export interface ProducstInitialType {
   isLoading: boolean;
   error: null | string;
   favoriteProducts: product[];
-  cart: product[];
+  cart: cartType;
   filter: string;
 }

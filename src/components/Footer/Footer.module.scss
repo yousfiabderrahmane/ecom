@@ -54,6 +54,13 @@
           color: $tertiaryColor;
         }
       }
+      a {
+        text-decoration: none;
+        transition: all 0.2s;
+        &:hover {
+          font-weight: bold;
+        }
+      }
     }
 
     .iconContainer {
