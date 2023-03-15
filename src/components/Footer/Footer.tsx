@@ -7,7 +7,7 @@ import { ReactComponent as YoutubeLogo } from "../../assets/svg/youtube-svgrepo-
 export const Footer = () => {
   return (
     <section className={styles.footer}>
-      <h1 className={styles.logo}>ayShop</h1>
+      <h1 className={styles.logo}>AyShop</h1>
 
       <div className={styles.footerContainer}>
         <div className={styles.section}>
