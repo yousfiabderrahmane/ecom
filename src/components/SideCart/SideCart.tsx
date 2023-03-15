@@ -3,6 +3,7 @@ import { ReactComponent as CloseIcon } from "../../assets/svg/close-bold-svgrepo
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { selectCart } from "../../redux/products/productsSlice";
 import { CartItem } from "./CartItem";
+import { ReactComponent as EmptyCart } from "../../assets/svg/emptyCart.svg";
 
 type SideCartProps = {
   isOpen: boolean;
@@ -27,12 +28,21 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
         </div>
 
         {isOpen && (
-          <div className={styles.cartItems}>
-            {products.length > 0 &&
-              products.map((product) => (
-                <CartItem key={product.id} product={product} />
-              ))}
-          </div>
+          <>
+            <div className={styles.cartItems}>
+              {products.length > 0 &&
+                products.map((product) => (
+                  <CartItem key={product.id} product={product} />
+                ))}
+            </div>
+
+            {cart.products.length > 0 && (
+              <div className={styles.cartButtons}>
+                <button>Empty Cart</button>
+                <button>View In Detail</button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>
