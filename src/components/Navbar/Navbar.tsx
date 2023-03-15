@@ -59,10 +59,7 @@ export const Navbar = () => {
           </Link>
           <h1 className={styles.logo}>AyShop</h1>
 
-          <div
-            onMouseLeave={() => setShowList(false)}
-            className={styles.productsButtonContainer}
-          >
+          <div className={styles.productsButtonContainer}>
             <button onClick={() => setShowList(!showList)}>
               {" "}
               <div className={styles.productsButton}>
@@ -84,7 +81,14 @@ export const Navbar = () => {
                 {" "}
                 {productsList.map((product) => (
                   <Link to={`/products/${product}`}>
-                    <button className={styles.dropdownBtn} key={product}>
+                    <button
+                      onClick={() => {
+                        setShowList(false);
+                        setScroll(true);
+                      }}
+                      className={styles.dropdownBtn}
+                      key={product}
+                    >
                       {product}
                     </button>
                   </Link>

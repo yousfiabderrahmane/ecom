@@ -21,6 +21,7 @@ export const Filter = () => {
   };
   return (
     <div className={styles.filterContainer}>
+      <p>Category :</p>
       {filters.map((filter) => (
         <button
           onClick={() => handleFilterChange(filter)}

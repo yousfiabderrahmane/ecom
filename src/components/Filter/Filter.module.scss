@@ -5,6 +5,12 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+
+  p {
+    font-family: $titlesFont;
+    font-weight: bold;
+    font-size: 20px;
+  }
   .filterBtn {
     padding: 5px 10px;
     border: 2px solid $secondaryColor;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Repair.module.scss";
 
 export const Repair = () => {
@@ -10,7 +11,9 @@ export const Repair = () => {
           Up to <span> 40% off</span> - All t-Shirts & Accessories
         </h1>
         <div>
-          <button>Explore More</button>
+          <Link to={"/shop"}>
+            <button>Explore More</button>
+          </Link>
         </div>
       </div>
     </section>
