@@ -9,8 +9,6 @@ import { getProductsRequested } from "./redux/products/productsSlice";
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 
-store.dispatch(getProductsRequested());
-
 root.render(
   <React.StrictMode>
     <Provider store={store}>

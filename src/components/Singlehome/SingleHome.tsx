@@ -12,13 +12,14 @@ export const SingleHome = ({ src, category }: SingleHomeProps) => {
   return (
     <section className={styles.homeContainer}>
       <div className={styles.bgContainer}>
-        <LazyLoadImage
+        {/* <LazyLoadImage
           alt={"bghome"}
           effect="blur"
           src={src}
           placeholderSrc={src}
           wrapperClassName={styles.BackGroundImage}
-        />
+        /> */}
+        <img src={src} alt="adas" className={styles.BackGroundImage} />
       </div>
 
       <div className={styles.content}>

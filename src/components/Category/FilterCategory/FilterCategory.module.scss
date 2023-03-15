@@ -1,0 +1,50 @@
+@import "../../../variables";
+
+.filterContainer {
+  @include container();
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  hr {
+    width: 50%;
+    height: 2px;
+
+    border: none;
+    border-top: 2px solid $quaternaryColor;
+  }
+  .iconsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  .filterIcon {
+    transform: scale(1.5);
+    cursor: pointer;
+    border: 2px solid $quaternaryColor;
+    background-color: $primaryColor;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.6);
+    }
+  }
+  .left {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    select {
+      border: none;
+      background-color: $primaryColor;
+      color: $tertiaryColor;
+      font-size: 16px;
+      border-radius: 4px;
+      padding: 5px 10px;
+    }
+  }
+}

@@ -74,7 +74,7 @@
     font-size: 19px;
     padding: 5px 10px;
     color: $tertiaryColor;
-    background-color: $primaryColor;
+    background-color: transparent;
     border: 2px solid $tertiaryColor;
     border-radius: 8px;
   }
@@ -135,5 +135,9 @@
   }
   .dropDown {
     background-color: white;
+  }
+
+  .navRedirectButtons {
+    background-color: $primaryColor;
   }
 }

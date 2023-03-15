@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.categoryOuterContainer {
+  @include container();
+  .categoryContainer {
+    background-color: white;
+    transform: translateY(-250px);
+    border-radius: 20px;
+  }
+}
