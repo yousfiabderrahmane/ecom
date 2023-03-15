@@ -1,5 +1,6 @@
 import BackGroundImage from "../../assets/images/home-background.jpg";
 import styles from "./Home.module.scss";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   return (
@@ -27,7 +28,9 @@ export const Home = () => {
         </div>
 
         <div>
-          <button className={styles.shopBtn}>Shop Now</button>
+          <Link to={"/shop"}>
+            <button className={styles.shopBtn}>Shop Now</button>
+          </Link>
         </div>
       </div>
     </section>

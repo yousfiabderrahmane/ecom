@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar } from "../components/Navbar/Navbar";
 import { Home } from "../components/Home/Home";
 import { Services } from "../components/Services/Services";
@@ -8,9 +8,12 @@ import { Newsletter } from "../components/Newsletter/Newsletter";
 import { Footer } from "../components/Footer/Footer";
 
 export const Landing = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
-      <Navbar />
       <Home />
       <Services />
       <Products />

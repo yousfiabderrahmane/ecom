@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  selectCart,
+  selectFavorites,
+} from "../../redux/products/productsSlice";
+import { Link } from "react-router-dom";
+//components
+import { SideCart } from "../SideCart/SideCart";
+//svg
 import { ReactComponent as NavStar } from "../../assets/svg/nav-star.svg";
 import { ReactComponent as NavCart } from "../../assets/svg/nav-cart.svg";
 import { ReactComponent as DownArrow } from "../../assets/svg/arrow-down.svg";
 import { ReactComponent as UpArrow } from "../../assets/svg/arrow-up.svg";
 import styles from "./Navbar.module.scss";
 import { useAppSelector } from "../../redux/hooks";
-import {
-  selectCart,
-  selectFavorites,
-} from "../../redux/products/productsSlice";
-import { SideCart } from "../SideCart/SideCart";
 
 const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 
@@ -25,7 +28,7 @@ export const Navbar = () => {
   const favoriteList = useAppSelector(selectFavorites);
 
   const changeNav = () => {
-    window.scrollY >= 5 ? setScroll(true) : setScroll(false);
+    window.scrollY >= 5 && setScroll(true);
   };
 
   useEffect(() => {
@@ -42,17 +45,22 @@ export const Navbar = () => {
         }
       >
         <div className={styles.iconContainer}>
-          <NavStar fill="white" className={styles.icon} />
+          <button className={styles.navRedirectButtons}>
+            Wishlist
+            <NavStar fill="white" className={styles.icon} />
+          </button>
           {favoriteList.length > 0 && (
             <span className={styles.overlayInfo}>{favoriteList.length}</span>
           )}
         </div>
         <div className={styles.middle}>
-          <button className={styles.navButton}>HOME</button>
+          <Link to={"/"}>
+            <button className={styles.navButton}>HOME</button>
+          </Link>
           <h1 className={styles.logo}>AyShop</h1>
 
           <div
-            // onMouseLeave={() => setShowList(false)}
+            onMouseLeave={() => setShowList(false)}
             className={styles.productsButtonContainer}
           >
             <button onClick={() => setShowList(!showList)}>
@@ -75,9 +83,11 @@ export const Navbar = () => {
               <div className={styles.dropDown}>
                 {" "}
                 {productsList.map((product) => (
-                  <button className={styles.dropdownBtn} key={product}>
-                    {product}
-                  </button>
+                  <Link to={`/products/${product}`}>
+                    <button className={styles.dropdownBtn} key={product}>
+                      {product}
+                    </button>
+                  </Link>
                 ))}
               </div>
             )}
@@ -90,7 +100,9 @@ export const Navbar = () => {
           }}
           className={styles.iconContainer}
         >
-          <NavCart fill="white" className={styles.icon} />
+          <button className={styles.navRedirectButtons}>
+            Cart <NavCart fill="white" className={styles.icon} />
+          </button>
           {cart.products.length > 0 && (
             <span className={styles.overlayInfo}>{cart.products.length}</span>
           )}

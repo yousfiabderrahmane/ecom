@@ -1,7 +1,7 @@
 import styles from "./SideCart.module.scss";
 import { ReactComponent as CloseIcon } from "../../assets/svg/close-bold-svgrepo-com.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { selectCart } from "../../redux/products/productsSlice";
+import { emptyCart, selectCart } from "../../redux/products/productsSlice";
 import { CartItem } from "./CartItem";
 import { ReactComponent as EmptyCart } from "../../assets/svg/emptyCart.svg";
 
@@ -18,6 +18,7 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
   const cart = useAppSelector(selectCart);
 
   const { products } = cart;
+  const dispatch = useAppDispatch();
 
   return (
     <div className={`${isOpen && styles.sideCartOverlay} `}>
@@ -36,10 +37,17 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
                 ))}
             </div>
 
-            {cart.products.length > 0 && (
+            {cart.products.length > 0 ? (
               <div className={styles.cartButtons}>
-                <button>Empty Cart</button>
+                <button onClick={() => dispatch(emptyCart())}>
+                  Empty Cart
+                </button>
                 <button>View In Detail</button>
+              </div>
+            ) : (
+              <div className={styles.emptyCartContainer}>
+                <EmptyCart className={styles.emptyCart} />
+                <h1>Currently Empty</h1>
               </div>
             )}
           </>

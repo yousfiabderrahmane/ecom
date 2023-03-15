@@ -66,6 +66,18 @@
       color: $secondaryColor;
     }
   }
+  .navRedirectButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    padding: 5px 10px;
+    color: $tertiaryColor;
+    background-color: $primaryColor;
+    border: 2px solid $tertiaryColor;
+    border-radius: 8px;
+  }
   .navButton {
     transition: all 0.2s;
     &:hover {

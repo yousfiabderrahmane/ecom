@@ -1,0 +1,22 @@
+@import "../../variables";
+
+.shopListContainer {
+  position: relative;
+  .shopList {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: white;
+    transform: translateY(-100px);
+    padding: 20px;
+  }
+  .productsGridContainer {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+}
