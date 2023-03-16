@@ -3,7 +3,7 @@ import {
   selectCart,
   selectFavorites,
 } from "../../redux/products/productsSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //components
 import { SideCart } from "../SideCart/SideCart";
 //svg
@@ -19,6 +19,8 @@ const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 export const Navbar = () => {
   const [showList, setShowList] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean | undefined>(false);
+
+  const navigate = useNavigate();
 
   //sidebar
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -45,7 +47,12 @@ export const Navbar = () => {
         }
       >
         <div className={styles.iconContainer}>
-          <button className={styles.navRedirectButtons}>
+          <button
+            onClick={() => {
+              navigate("/wishlist");
+            }}
+            className={styles.navRedirectButtons}
+          >
             Wishlist
             <NavStar fill="white" className={styles.icon} />
           </button>

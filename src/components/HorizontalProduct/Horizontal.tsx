@@ -56,7 +56,7 @@ export const Horizontal = ({ product }: IProps) => {
         <p className={styles.price}>${product.price}</p>
 
         <p className={styles.description}>
-          {product.description.substring(0, 200)}...
+          {product.description.substring(0, 100)}...
         </p>
         <div className={styles.buttonsContainer}>
           <button

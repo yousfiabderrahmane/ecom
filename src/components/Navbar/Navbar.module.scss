@@ -73,9 +73,9 @@
     gap: 10px;
     font-size: 19px;
     padding: 5px 10px;
-    color: $tertiaryColor;
-    background-color: transparent;
-    border: 2px solid $tertiaryColor;
+    color: white;
+    background-color: rgba($color: $primaryColor, $alpha: 0.5);
+    border: 2px solid white;
     border-radius: 8px;
   }
   .navButton {
@@ -138,6 +138,12 @@
   }
 
   .navRedirectButtons {
-    background-color: $primaryColor;
+    color: black;
+    border: 2px solid black;
+  }
+  .icon {
+    path {
+      fill: black;
+    }
   }
 }

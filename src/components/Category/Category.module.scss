@@ -2,9 +2,13 @@
 
 .categoryOuterContainer {
   @include container();
+  position: relative;
   .categoryContainer {
     background-color: white;
-    transform: translateY(-250px);
+    // transform: translateY(-250px);
+    position: absolute;
+    top: -200px;
     border-radius: 20px;
+    width: 100%;
   }
 }
