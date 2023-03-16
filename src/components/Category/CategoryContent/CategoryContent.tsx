@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
   getProductsRequested,
@@ -30,14 +30,14 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
 
   const [sortedArr, setSortedArr] = useState<product[]>(thisProducts);
 
-  const handleHighest = () => {
+  const handleHighest = useCallback(() => {
     setSortedArr(thisProducts.sort((a, b) => b.price - a.price));
-  };
-  const handleLowest = () => {
+  }, [thisProducts]);
+  const handleLowest = useCallback(() => {
     setSortedArr(thisProducts.sort((a, b) => a.price - b.price));
-  };
+  }, [thisProducts]);
 
-  const handleName = () => {
+  const handleName = useCallback(() => {
     setSortedArr(
       thisProducts.sort(function (a, b) {
         if (a.title < b.title) {
@@ -49,9 +49,9 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
         return 0;
       })
     );
-  };
+  }, [thisProducts]);
 
-  const handleNameRevert = () => {
+  const handleNameRevert = useCallback(() => {
     const newArr = thisProducts.sort(function (a, b) {
       if (a.title < b.title) {
         return -1;
@@ -62,7 +62,7 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
       return 0;
     });
     setSortedArr(newArr.reverse());
-  };
+  }, [thisProducts]);
 
   useEffect(() => {
     if (option === "highest") {
@@ -74,13 +74,21 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
     } else {
       handleNameRevert();
     }
-  }, [option, category, favoriteList]);
+  }, [
+    option,
+    category,
+    favoriteList,
+    handleHighest,
+    handleLowest,
+    handleName,
+    handleNameRevert,
+  ]);
 
   useEffect(() => {
     if (products.length < 1) {
       dispatch(getProductsRequested());
     }
-  }, []);
+  }, [dispatch, products.length]);
 
   return (
     <>

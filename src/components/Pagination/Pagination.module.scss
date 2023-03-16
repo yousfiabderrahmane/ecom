@@ -1,0 +1,27 @@
+@import "../../variables";
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  p {
+    color: $quaternaryColor;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 2px solid $quaternaryColor;
+    border-radius: 50%;
+  }
+  .paginationBtn {
+    padding: 5px 10px;
+    border: 2px solid;
+    cursor: pointer;
+    color: $quaternaryColor;
+    font-weight: bold;
+    background-color: $primaryColor;
+    border-radius: 5px;
+    &:hover {
+    }
+  }
+}

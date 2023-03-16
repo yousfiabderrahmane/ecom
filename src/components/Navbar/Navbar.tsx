@@ -28,7 +28,7 @@ export const Navbar = () => {
   const favoriteList = useAppSelector(selectFavorites);
 
   const changeNav = () => {
-    window.scrollY >= 5 && setScroll(true);
+    window.scrollY >= 5 ? setScroll(true) : setScroll(false);
   };
 
   useEffect(() => {
