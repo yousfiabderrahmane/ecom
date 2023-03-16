@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  h1 {
+    color: $quaternaryColor;
+    font-family: $titlesFont;
+  }
+}

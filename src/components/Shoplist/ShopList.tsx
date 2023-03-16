@@ -10,6 +10,7 @@ import { Product } from "../Product/Product";
 import styles from "./ShopList.module.scss";
 import { Loading } from "../LoadingGif/Loading";
 import { Pagination } from "../Pagination/Pagination";
+import Error from "../Error/Error";
 
 export const ShopList = () => {
   //app state
@@ -86,36 +87,39 @@ export const ShopList = () => {
     <>
       <section className={styles.shopListContainer}>
         <div className={styles.shopList}>
-          <Filter />
-          {isLoading && <Loading />}
-          {error && (
-            <h3 className={styles.loading}>We've got a problem chief !</h3>
-          )}
+          {error && <Error error={error} />}
 
-          {!isLoading && (
+          {isLoading && <Loading />}
+
+          {!error && !isLoading && (
             <>
-              {products.length > 0 && (
-                <div
-                  className={`${styles.productsGridContainer} animate__animated animate__fadeIn`}
-                >
-                  {filter === "all" &&
-                    currentProductsInitial.map((product) => (
-                      <Product key={product.id} product={product} />
-                    ))}
-                  {filter !== "all" &&
-                    currentProducts.map((product) => (
-                      <Product key={product.id} product={product} />
-                    ))}
-                </div>
-              )}
-              <Pagination
-                handleNext={handleNext}
-                handlePrevious={handlePrevious}
-                currentPage={currentPage}
-                totalPages={
-                  filter === "all" ? products.length / cardsPerPage : totalPages
-                }
-              />
+              <Filter />
+              <>
+                {products.length > 0 && (
+                  <div
+                    className={`${styles.productsGridContainer} animate__animated animate__fadeIn`}
+                  >
+                    {filter === "all" &&
+                      currentProductsInitial.map((product) => (
+                        <Product key={product.id} product={product} />
+                      ))}
+                    {filter !== "all" &&
+                      currentProducts.map((product) => (
+                        <Product key={product.id} product={product} />
+                      ))}
+                  </div>
+                )}
+                <Pagination
+                  handleNext={handleNext}
+                  handlePrevious={handlePrevious}
+                  currentPage={currentPage}
+                  totalPages={
+                    filter === "all"
+                      ? products.length / cardsPerPage
+                      : totalPages
+                  }
+                />
+              </>
             </>
           )}
         </div>

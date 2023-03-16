@@ -5,6 +5,7 @@ import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/productsSlice";
 import { CategoryContent } from "./CategoryContent/CategoryContent";
 import { product } from "../../redux/products/types";
+import Error from "../Error/Error";
 
 interface CategoryProps {
   category: string;
@@ -24,6 +25,8 @@ export const Category = ({ category }: CategoryProps) => {
     (product) => product.category === currentCategory
   );
 
+  const error = useAppSelector((state) => state.products.error);
+
   useEffect(() => {
     if (category === "Women") {
       setCurrentCategory("women's clothing");
@@ -38,18 +41,24 @@ export const Category = ({ category }: CategoryProps) => {
 
   return (
     <div className={styles.container}>
-      <FilterCategory
-        setShowMode={setShowMode}
-        showMode={showMode}
-        thisCategoryProducts={thisCategoryProducts}
-        category={category}
-        setOption={setOption}
-      />
-      <CategoryContent
-        showMode={showMode}
-        option={option}
-        category={currentCategory}
-      />
+      {error ? (
+        <Error error={error} />
+      ) : (
+        <>
+          <FilterCategory
+            setShowMode={setShowMode}
+            showMode={showMode}
+            thisCategoryProducts={thisCategoryProducts}
+            category={category}
+            setOption={setOption}
+          />
+          <CategoryContent
+            showMode={showMode}
+            option={option}
+            category={currentCategory}
+          />
+        </>
+      )}
     </div>
   );
 };

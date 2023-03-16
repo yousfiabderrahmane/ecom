@@ -1,3 +1,3 @@
 export const getProducts = () => {
-  return fetch("https://fakestoreapi.com/products");
+  return fetch("https://fakest$$$oreapi.com/products");
 };

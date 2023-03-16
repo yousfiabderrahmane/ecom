@@ -25,7 +25,7 @@ export const CategoryContent = ({
   const dispatch = useAppDispatch();
 
   const isLoading = useAppSelector((state) => state.products.isLoading);
-  const error = useAppSelector((state) => state.products.error);
+
   const products = useAppSelector(selectAllProducts);
 
   const thisProducts = products
