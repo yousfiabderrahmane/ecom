@@ -80,11 +80,12 @@ export const Navbar = () => {
               <div className={styles.dropDown}>
                 {" "}
                 {productsList.map((product) => (
-                  <Link to={`/products/${product}`}>
+                  <Link key={product} to={`/products/${product}`}>
                     <button
                       onClick={() => {
                         setShowList(false);
                         setScroll(true);
+                        window.scrollTo(0, 0);
                       }}
                       className={styles.dropdownBtn}
                       key={product}

@@ -3,10 +3,12 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import {
   getProductsRequested,
   selectAllProducts,
+  selectFavorites,
 } from "../../../redux/products/productsSlice";
 import { product } from "../../../redux/products/types";
 import { Product } from "../../Product/Product";
 import styles from "./CategoryContent.module.scss";
+import { Loading } from "../../LoadingGif/Loading";
 
 interface ContentTypeProps {
   option: string;
@@ -19,12 +21,14 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
   const isLoading = useAppSelector((state) => state.products.isLoading);
   const error = useAppSelector((state) => state.products.error);
   const products = useAppSelector(selectAllProducts);
+
   const thisProducts = products.filter(
     (product) => product.category === category
   );
-  console.log(thisProducts);
+
+  const favoriteList = useAppSelector(selectFavorites);
+
   const [sortedArr, setSortedArr] = useState<product[]>(thisProducts);
-  console.log(sortedArr);
 
   const handleHighest = () => {
     setSortedArr(thisProducts.sort((a, b) => b.price - a.price));
@@ -70,19 +74,26 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
     } else {
       handleNameRevert();
     }
-  }, [option, category]);
+  }, [option, category, favoriteList]);
 
   useEffect(() => {
-    dispatch(getProductsRequested());
-  }, [category, dispatch]);
+    if (products.length < 1) {
+      dispatch(getProductsRequested());
+    }
+  }, []);
 
   return (
     <>
-      {isLoading && <h1 className={styles.loading}>Loading ...</h1>}
+      {/* {isLoading && <h1 className={styles.loading}>Loading ...</h1>} */}
+      {isLoading && <Loading />}
       <section className={styles.contentContainer}>
         {!isLoading && sortedArr.length > 0
-          ? sortedArr.map((product) => <Product product={product} />)
-          : thisProducts.map((product) => <Product product={product} />)}
+          ? sortedArr.map((product) => (
+              <Product key={product.id} product={product} />
+            ))
+          : thisProducts.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
       </section>
     </>
   );

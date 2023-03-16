@@ -9,6 +9,7 @@ import {
   selectCart,
   selectProductById,
   toggleFavorite,
+  selectFavorites,
 } from "../../redux/products/productsSlice";
 
 interface ProductProps {
@@ -18,6 +19,7 @@ interface ProductProps {
 export const Product = ({ product }: ProductProps) => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => selectCart(state));
+  const favorites = useAppSelector(selectFavorites);
 
   const thisProduct = useAppSelector((state) =>
     selectProductById(state, product.id)

@@ -16,7 +16,6 @@ export const Category = ({ category }: CategoryProps) => {
   }, []);
   //state
   const products = useAppSelector(selectAllProducts);
-  const [showMode, setShowMode] = useState<string>("dots");
   const [option, setOption] = useState("highest");
   const [currentCategory, setCurrentCategory] = useState<string>("");
 

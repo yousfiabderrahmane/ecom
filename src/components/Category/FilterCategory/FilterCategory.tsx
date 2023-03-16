@@ -19,12 +19,24 @@ export const FilterCategory = ({
 }: FilterProps) => {
   const loading = useAppSelector((state) => state.products.isLoading);
 
+  const [showMode, setShowMode] = useState<string>("dots");
+
   return (
     <section className={styles.filterContainer}>
       <div className={styles.left}>
         <div className={styles.iconsContainer}>
-          <Dots className={styles.filterIcon} />
-          <Listed className={styles.filterIcon} />
+          <Dots
+            onClick={() => setShowMode("dots")}
+            className={`${styles.filterIcon} ${
+              showMode === "dots" && styles.active
+            }`}
+          />
+          <Listed
+            onClick={() => setShowMode("list")}
+            className={`${styles.filterIcon} ${
+              showMode === "list" && styles.active
+            }`}
+          />
         </div>
         <p>
           {" "}

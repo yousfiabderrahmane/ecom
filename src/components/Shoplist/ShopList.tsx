@@ -7,6 +7,7 @@ import {
 import { Filter } from "../Filter/Filter";
 import { Product } from "../Product/Product";
 import styles from "./ShopList.module.scss";
+import { Loading } from "../LoadingGif/Loading";
 
 export const ShopList = () => {
   const products = useAppSelector((state) => state.products.products);
@@ -31,13 +32,16 @@ export const ShopList = () => {
   );
 
   useEffect(() => {
-    dispatch(getProductsRequested());
+    if (products.length < 1) {
+      dispatch(getProductsRequested());
+    }
   }, []);
+
   return (
     <section className={styles.shopListContainer}>
       <div className={styles.shopList}>
         <Filter />
-        {isLoading && <h3 className={styles.loading}>Loading ...</h3>}
+        {isLoading && <Loading />}
         {error && (
           <h3 className={styles.loading}>We've got a problem chief !</h3>
         )}

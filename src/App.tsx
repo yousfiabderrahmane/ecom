@@ -3,8 +3,13 @@ import { Landing } from "./pages/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Shop } from "./pages/Shop";
 import { SingleCategoryPage } from "./pages/SingleCategoryPage";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>

@@ -24,6 +24,7 @@ export const Filter = () => {
       <p>Category :</p>
       {filters.map((filter) => (
         <button
+          key={filter}
           onClick={() => handleFilterChange(filter)}
           className={`${styles.filterBtn} ${
             currentFilter === filter && styles.active
