@@ -1,9 +1,17 @@
 import { Navbar } from "./components/Navbar/Navbar";
-import { Landing } from "./pages/Landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Shop } from "./pages/Shop";
-import { SingleCategoryPage } from "./pages/SingleCategoryPage";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
+import React from "react";
+import { Loading } from "./components/LoadingGif/Loading";
+// import { Landing } from "./pages/Landing";
+// import { Shop } from "./pages/Shop";
+// import { SingleCategoryPage } from "./pages/SingleCategoryPage";
+
+const LazyLanding = React.lazy(() => import("./pages/Landing"));
+const LazyShop = React.lazy(() => import("./pages/Shop"));
+const LazySingleCategoryPage = React.lazy(
+  () => import("./pages/SingleCategoryPage")
+);
 
 function App() {
   useEffect(() => {
@@ -14,11 +22,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Landing />}></Route>
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/products/:category" element={<SingleCategoryPage />} />
-        </Routes>
+        <Suspense fallback={<Loading />}>
+          <Routes>
+            <Route path="/" element={<LazyLanding />}></Route>
+            <Route path="/shop" element={<LazyShop />} />
+            <Route
+              path="/products/:category"
+              element={<LazySingleCategoryPage />}
+            />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );

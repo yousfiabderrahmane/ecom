@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { ShopHome } from "../components/Shophome/ShopHome";
 import { ShopList } from "../components/Shoplist/ShopList";
 
-export const Shop = () => {
+const Shop = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -13,3 +13,5 @@ export const Shop = () => {
     </div>
   );
 };
+
+export default Shop;

@@ -7,7 +7,7 @@ import { Repair } from "../components/Repair/Repair";
 import { Newsletter } from "../components/Newsletter/Newsletter";
 import { Footer } from "../components/Footer/Footer";
 
-export const Landing = () => {
+const Landing = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,3 +27,4 @@ export const Landing = () => {
     </>
   );
 };
+export default Landing;

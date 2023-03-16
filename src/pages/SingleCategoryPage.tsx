@@ -6,7 +6,7 @@ import electronicsBg from "../assets/images/electronics.jpg";
 import { SingleHome } from "../components/Singlehome/SingleHome";
 import { Category } from "../components/Category/Category";
 
-export const SingleCategoryPage = () => {
+const SingleCategoryPage = () => {
   const { category } = useParams();
 
   if (category) {
@@ -31,3 +31,5 @@ export const SingleCategoryPage = () => {
     return <h1>Loading ...</h1>;
   }
 };
+
+export default SingleCategoryPage;
