@@ -37,21 +37,19 @@ export const Category = ({ category }: CategoryProps) => {
   }, [category]);
 
   return (
-    <section className={styles.categoryOuterContainer}>
-      <div className={styles.categoryContainer}>
-        <FilterCategory
-          setShowMode={setShowMode}
-          showMode={showMode}
-          thisCategoryProducts={thisCategoryProducts}
-          category={category}
-          setOption={setOption}
-        />
-        <CategoryContent
-          showMode={showMode}
-          option={option}
-          category={currentCategory}
-        />
-      </div>
-    </section>
+    <div className={styles.container}>
+      <FilterCategory
+        setShowMode={setShowMode}
+        showMode={showMode}
+        thisCategoryProducts={thisCategoryProducts}
+        category={category}
+        setOption={setOption}
+      />
+      <CategoryContent
+        showMode={showMode}
+        option={option}
+        category={currentCategory}
+      />
+    </div>
   );
 };

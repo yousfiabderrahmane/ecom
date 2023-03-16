@@ -87,28 +87,23 @@
   .iconContainer {
     position: relative;
     cursor: pointer;
+    transition: all 0.2s;
     .overlayInfo {
       position: absolute;
       transition: all 0.3s;
-      top: -1px;
-      right: -2px;
+      top: -8px;
+      right: -4px;
       padding: 0px 4px;
       font-size: 12px;
       font-weight: bold;
       border: 2px solid black;
       color: white;
       background-color: $tertiaryColor;
-      border-radius: 50%;
+      border-radius: 20%;
       animation: show 0.2s ease-in-out forwards;
     }
     &:hover {
-      .icon {
-        fill: $primaryColor;
-        transform: translateY(-3px) rotate(20deg);
-      }
-      .overlayInfo {
-        display: none;
-      }
+      filter: drop-shadow(0px 0px 10px $tertiaryColor);
     }
   }
 }

@@ -23,7 +23,7 @@ const Landing = () => {
       <Products />
       <Repair />
       <Newsletter />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

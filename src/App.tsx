@@ -34,6 +34,7 @@ function App() {
             />
             <Route path="/wishlist" element={<LazyWish />} />
           </Routes>
+          <Footer />
         </Suspense>
       </BrowserRouter>
     </div>
