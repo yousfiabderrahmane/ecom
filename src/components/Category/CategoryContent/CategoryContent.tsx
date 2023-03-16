@@ -28,9 +28,9 @@ export const CategoryContent = ({
   const error = useAppSelector((state) => state.products.error);
   const products = useAppSelector(selectAllProducts);
 
-  const thisProducts = products.filter(
-    (product) => product.category === category
-  );
+  const thisProducts = products
+    .filter((product) => product.category === category)
+    .sort((a, b) => b.price - a.price);
 
   const favoriteList = useAppSelector(selectFavorites);
 

@@ -37,14 +37,16 @@ export const productsSlice = createSlice({
 
       const thisProduct = state.products.find((product) => product.id === id);
 
-      if (thisProduct?.isFavorite === false) {
-        thisProduct.isFavorite = true;
-        state.favoriteProducts.push(thisProduct);
-      } else if (thisProduct?.isFavorite === true) {
-        thisProduct.isFavorite = false;
+      const exists = state.favoriteProducts.find(
+        (product) => product.id === id
+      );
+
+      if (exists && thisProduct) {
         state.favoriteProducts = state.favoriteProducts.filter(
           (product) => product.id !== id
         );
+      } else if (!exists && thisProduct) {
+        state.favoriteProducts.push(thisProduct);
       }
     },
     toggleCart: (state, action: PayloadAction<{ id: number }>) => {
@@ -96,6 +98,9 @@ export const productsSlice = createSlice({
     changeFilter: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
     },
+    emptyFavList: (state) => {
+      state.favoriteProducts = [];
+    },
   },
 });
 
@@ -110,6 +115,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   emptyCart,
+  emptyFavList,
 } = productsSlice.actions;
 
 //selectors

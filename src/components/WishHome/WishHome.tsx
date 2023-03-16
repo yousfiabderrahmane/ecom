@@ -6,12 +6,12 @@ export const WishHome = () => {
   return (
     <section className={styles.homeContainer}>
       <div className={styles.bgContainer}>
-        <LazyLoadImage
+        <img
           alt={"bghome"}
-          effect="blur"
+          // effect="blur"
           src={BackGroundImage}
-          placeholderSrc={BackGroundImage}
-          wrapperClassName={styles.BackGroundImage}
+          // placeholderSrc={BackGroundImage}
+          // wrapperClassName={styles.BackGroundImage}
         />
       </div>
 

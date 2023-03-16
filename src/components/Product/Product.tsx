@@ -21,11 +21,9 @@ export const Product = ({ product }: ProductProps) => {
   const cart = useAppSelector((state) => selectCart(state));
   const favorites = useAppSelector(selectFavorites);
 
-  const thisProduct = useAppSelector((state) =>
-    selectProductById(state, product.id)
-  );
-
   const exists = cart.products.find((i) => i.id === product.id);
+
+  const isFavorite = favorites.find((i) => i.id === product.id);
 
   //functions
   const handleAddFav = () => {
@@ -49,7 +47,7 @@ export const Product = ({ product }: ProductProps) => {
   return (
     <div
       className={`${styles.productCard} animate__animated animate__zoomIn ${
-        product.isFavorite && styles.productIsFav
+        isFavorite && styles.productIsFav
       }`}
     >
       <div className={styles.imageContainer}>
@@ -60,10 +58,10 @@ export const Product = ({ product }: ProductProps) => {
         <div
           onClick={handleAddFav}
           className={`${styles.favoriteContainer} ${
-            product.isFavorite && styles.removeMe
+            isFavorite && styles.removeMe
           }`}
         >
-          {product.isFavorite ? (
+          {isFavorite ? (
             <RemoveFav className={`${styles.favoriteIcon}`} />
           ) : (
             <AddToFav className={styles.favoriteIcon} />

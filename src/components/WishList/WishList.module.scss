@@ -1,0 +1,63 @@
+@import "../../variables";
+
+.listContainer {
+  position: relative;
+  @include container();
+  margin: 0 auto;
+  .list {
+    background-color: white;
+    position: absolute;
+    top: -130px;
+    border-radius: 40px;
+    margin-top: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .header {
+      display: flex;
+      justify-content: center;
+      button {
+        padding: 5px 10px;
+        background-color: $secondaryColor;
+        color: $quaternaryColor;
+        border: 2px solid $quaternaryColor;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+.emptyFavContainer {
+  position: absolute;
+  top: -130px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 40px;
+  h1 {
+    color: $secondaryColor;
+    font-family: $titlesFont;
+  }
+  .emptyIcon {
+    height: 300px;
+  }
+}

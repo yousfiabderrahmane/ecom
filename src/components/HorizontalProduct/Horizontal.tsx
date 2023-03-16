@@ -8,6 +8,7 @@ import {
   toggleCart,
   selectCart,
   toggleFavorite,
+  selectFavorites,
 } from "../../redux/products/productsSlice";
 interface IProps {
   product: product;
@@ -16,6 +17,10 @@ interface IProps {
 export const Horizontal = ({ product }: IProps) => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => selectCart(state));
+
+  const favorites = useAppSelector(selectFavorites);
+
+  const isFavorite = favorites.find((i) => i.id === product.id);
 
   const exists = cart.products.find((i) => i.id === product.id);
 
@@ -31,19 +36,17 @@ export const Horizontal = ({ product }: IProps) => {
     <div
       className={`${
         styles.horizontalProduct
-      } animate__animated animate__zoomIn ${
-        product.isFavorite && styles.productIsFav
-      }`}
+      } animate__animated animate__zoomIn ${isFavorite && styles.productIsFav}`}
     >
       <div className={styles.imageContainer}>
         <img src={product.image} alt={product.title} />
         <div
           onClick={handleAddFav}
           className={`${styles.favoriteContainer} ${
-            product.isFavorite && styles.removeMe
+            isFavorite && styles.removeMe
           }`}
         >
-          {product.isFavorite ? (
+          {isFavorite ? (
             <RemoveFav className={`${styles.favoriteIcon}`} />
           ) : (
             <AddToFav className={styles.favoriteIcon} />
