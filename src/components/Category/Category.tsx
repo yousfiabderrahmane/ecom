@@ -18,6 +18,7 @@ export const Category = ({ category }: CategoryProps) => {
   const products = useAppSelector(selectAllProducts);
   const [option, setOption] = useState("highest");
   const [currentCategory, setCurrentCategory] = useState<string>("");
+  const [showMode, setShowMode] = useState<string>("dots");
 
   const thisCategoryProducts = products.filter(
     (product) => product.category === currentCategory
@@ -39,11 +40,17 @@ export const Category = ({ category }: CategoryProps) => {
     <section className={styles.categoryOuterContainer}>
       <div className={styles.categoryContainer}>
         <FilterCategory
+          setShowMode={setShowMode}
+          showMode={showMode}
           thisCategoryProducts={thisCategoryProducts}
           category={category}
           setOption={setOption}
         />
-        <CategoryContent option={option} category={currentCategory} />
+        <CategoryContent
+          showMode={showMode}
+          option={option}
+          category={currentCategory}
+        />
       </div>
     </section>
   );

@@ -9,13 +9,19 @@ import { product } from "../../../redux/products/types";
 import { Product } from "../../Product/Product";
 import styles from "./CategoryContent.module.scss";
 import { Loading } from "../../LoadingGif/Loading";
+import { Horizontal } from "../../HorizontalProduct/Horizontal";
 
 interface ContentTypeProps {
   option: string;
   category: string;
+  showMode: string;
 }
 
-export const CategoryContent = ({ option, category }: ContentTypeProps) => {
+export const CategoryContent = ({
+  option,
+  category,
+  showMode,
+}: ContentTypeProps) => {
   const dispatch = useAppDispatch();
 
   const isLoading = useAppSelector((state) => state.products.isLoading);
@@ -74,15 +80,8 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
     } else {
       handleNameRevert();
     }
-  }, [
-    option,
-    category,
-    favoriteList,
-    handleHighest,
-    handleLowest,
-    handleName,
-    handleNameRevert,
-  ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [option, category, favoriteList]);
 
   useEffect(() => {
     if (products.length < 1) {
@@ -94,15 +93,28 @@ export const CategoryContent = ({ option, category }: ContentTypeProps) => {
     <>
       {/* {isLoading && <h1 className={styles.loading}>Loading ...</h1>} */}
       {isLoading && <Loading />}
-      <section className={styles.contentContainer}>
-        {!isLoading && sortedArr.length > 0
-          ? sortedArr.map((product) => (
-              <Product key={product.id} product={product} />
-            ))
-          : thisProducts.map((product) => (
-              <Product key={product.id} product={product} />
-            ))}
-      </section>
+
+      {showMode === "dots" ? (
+        <section className={styles.contentContainer}>
+          {!isLoading && sortedArr.length > 0
+            ? sortedArr.map((product) => (
+                <Product key={product.id} product={product} />
+              ))
+            : thisProducts.map((product) => (
+                <Product key={product.id} product={product} />
+              ))}
+        </section>
+      ) : (
+        <section className={styles.horizontalContainer}>
+          {!isLoading && sortedArr.length > 0
+            ? sortedArr.map((product) => (
+                <Horizontal key={product.id} product={product} />
+              ))
+            : thisProducts.map((product) => (
+                <Horizontal key={product.id} product={product} />
+              ))}
+        </section>
+      )}
     </>
   );
 };

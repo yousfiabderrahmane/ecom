@@ -10,16 +10,18 @@ interface FilterProps {
   category: string;
   thisCategoryProducts: product[];
   setOption: React.Dispatch<React.SetStateAction<string>>;
+  showMode: string;
+  setShowMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const FilterCategory = ({
   category,
   thisCategoryProducts,
   setOption,
+  showMode,
+  setShowMode,
 }: FilterProps) => {
   const loading = useAppSelector((state) => state.products.isLoading);
-
-  const [showMode, setShowMode] = useState<string>("dots");
 
   return (
     <section className={styles.filterContainer}>

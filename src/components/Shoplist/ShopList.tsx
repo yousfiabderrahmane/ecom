@@ -70,8 +70,11 @@ export const ShopList = () => {
     } else {
       setThisCategoryProducts(women);
     }
-    setCurrentPage(1);
   }, [filter, favorites]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filter]);
 
   useEffect(() => {
     if (products.length < 1) {
