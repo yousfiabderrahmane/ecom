@@ -4,17 +4,31 @@ import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { getSingleProductRequested } from "../redux/SingleProduct/singleProductSlice";
 import { Loading } from "../components/LoadingGif/Loading";
+import SingleProduct from "../components/SingleProduct/SingleProduct";
 
 const SingleProductPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
 
+  const randomReduction = Math.ceil(Math.random() * 40);
   const isLoading = useAppSelector((state) => state.singleProduct.isLoading);
 
   useEffect(() => {
     dispatch(getSingleProductRequested({ id: Number(id) }));
+    window.scrollTo(0, 0);
   }, []);
-  return <section>{isLoading ? <Loading /> : <SingleProductHeader />}</section>;
+  return (
+    <section>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <SingleProductHeader />
+          <SingleProduct randomReduction={randomReduction} />
+        </>
+      )}
+    </section>
+  );
 };
 
 export default SingleProductPage;

@@ -97,12 +97,6 @@ export const Product = ({ product }: ProductProps) => {
         </div>
 
         <div className={styles.buttonsContainer}>
-          <button
-            className={exists && styles.cantAdd}
-            onClick={handleAddToCart}
-          >
-            {exists ? "Remove From Cart" : "Add To Cart"}
-          </button>
           <button onClick={handleRedirect}>More Details</button>
         </div>
       </div>

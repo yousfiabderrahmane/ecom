@@ -10,7 +10,6 @@ export type product = {
     count: number;
   };
   isFavorite: boolean;
-  quantity: number;
 };
 
 export type cartType = {

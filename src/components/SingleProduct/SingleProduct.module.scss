@@ -1,0 +1,255 @@
+@import "../../variables";
+
+.productContainer {
+  display: flex;
+  @include container();
+  gap: 40px;
+
+  .left {
+    flex-basis: 35%;
+    .imageContainer {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100%;
+      padding-right: 20px;
+      border-right: 3px solid $tertiaryColor;
+      img {
+        width: 100%;
+        height: 50%;
+      }
+    }
+  }
+
+  .right {
+    flex-basis: 65%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    .title {
+      h2 {
+        font-size: 40px;
+        color: $quaternaryColor;
+      }
+    }
+
+    .ratingPriceContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .priceContainer {
+        // background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 10px;
+        position: relative;
+        background-color: $primaryColor;
+        border-radius: 12px;
+        .newPrice {
+          font-weight: bold;
+        }
+        .oldPrice {
+          color: gray;
+          text-decoration: dashed;
+          padding-left: 5px;
+        }
+        .reduction {
+          background-color: $tertiaryColor;
+          color: white;
+          padding: 3px 7px;
+          font-size: 14px;
+          border-radius: 12px;
+          position: absolute;
+          top: -10px;
+          right: -20px;
+        }
+      }
+      .ratingContainer {
+        display: flex;
+        // gap: 50px;
+        justify-content: space-between;
+        .rating {
+          //   background-color: blue;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          //   gap: 5px;
+          p {
+            span {
+              color: $tertiaryColor;
+            }
+          }
+          .starIcon {
+            height: 20px;
+            width: 20px;
+          }
+        }
+      }
+    }
+
+    .colorsContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .buttonsContainer {
+        display: flex;
+        gap: 20px;
+      }
+      .colorButton {
+        padding: 12px;
+        border-radius: 50%;
+        transition: all 0.3s;
+        border: 5px solid transparent;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+      .active {
+        // border-color: $tertiaryColor;
+        box-shadow: 0px 0px 0px 2px white inset;
+      }
+    }
+
+    .sizeContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .sizeButtons {
+        display: flex;
+        gap: 8px;
+        .sizeButton {
+          padding: 5px 10px;
+          background-color: transparent;
+          border: 2px solid black;
+          color: black;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.2s;
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+        .activeSize {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+    .addToCartContainer {
+      display: flex;
+      justify-content: space-between;
+      // gap: 200px;
+      .quantityButtons {
+        background-color: #e6e6e6;
+        flex-basis: 33%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        font-size: 20px;
+        border-radius: 8px;
+
+        button {
+          border: none;
+          background-color: transparent;
+          padding: 10px;
+          font-size: 20px;
+          flex-basis: 40%;
+          cursor: pointer;
+          transition: all 0.3s;
+          border-radius: 8px;
+          &:hover {
+            background-color: #d9d9d9;
+          }
+        }
+      }
+      .addToCartButton {
+        flex-basis: 65%;
+        button {
+          height: 100%;
+          width: 100%;
+          font-family: $paragraphsFont;
+          background-color: transparent;
+          border: 2px solid black;
+          color: black;
+          font-weight: bold;
+          border-radius: 3px;
+          cursor: pointer;
+          transition: all 0.4s;
+          position: relative;
+
+          &:hover {
+            color: #fff;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+            transition: transform 0.5s;
+            transform-origin: 0 0;
+            transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+            transform: scaleX(0);
+          }
+          &:hover::before {
+            transform: unset;
+          }
+        }
+      }
+    }
+    .wishlistAndQuestionContainer {
+      display: flex;
+      gap: 30px;
+      .wishlist {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .miniIcon {
+          height: 30px;
+          width: 30px;
+          cursor: pointer;
+        }
+      }
+      .question {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .miniIcon {
+          height: 30px;
+          width: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+    .deliveryAndGiftContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        .miniIcon {
+          height: 30px;
+          width: 30px;
+        }
+        p {
+          span {
+            color: $tertiaryColor;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

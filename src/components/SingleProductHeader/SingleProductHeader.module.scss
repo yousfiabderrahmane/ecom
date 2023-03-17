@@ -3,6 +3,7 @@
 .headerContainer {
   background-color: $secondaryColor;
   padding: 20px;
+  padding-top: 90px;
 
   div {
     @include container();
@@ -18,6 +19,10 @@
       a {
         text-decoration: none;
         color: $quaternaryColor;
+        transition: color 0.3s;
+        &:hover {
+          color: $tertiaryColor;
+        }
       }
     }
   }

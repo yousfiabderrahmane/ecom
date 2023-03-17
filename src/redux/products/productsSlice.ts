@@ -63,38 +63,13 @@ export const productsSlice = createSlice({
           (product) => product.id !== id
         );
       } else if (thisProduct) {
-        state.cart.products.push({ ...thisProduct, quantity: 1 });
+        state.cart.products.push({ ...thisProduct });
       }
     },
     emptyCart: (state) => {
       state.cart.products = [];
     },
-    increaseQuantity: (state, action: PayloadAction<{ id: number }>) => {
-      const { id } = action.payload;
 
-      const thisProduct = state.cart.products.find(
-        (product) => product.id === id
-      );
-
-      if (thisProduct) {
-        thisProduct.quantity++;
-      }
-    },
-    decreaseQuantity: (state, action: PayloadAction<{ id: number }>) => {
-      const { id } = action.payload;
-
-      const thisProduct = state.cart.products.find(
-        (product) => product.id === id
-      );
-
-      if (thisProduct && thisProduct?.quantity !== 1) {
-        thisProduct.quantity--;
-      } else {
-        state.cart.products = state.cart.products.filter(
-          (product) => product.id !== id
-        );
-      }
-    },
     changeFilter: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
     },
@@ -112,8 +87,7 @@ export const {
   toggleFavorite,
   toggleCart,
   changeFilter,
-  increaseQuantity,
-  decreaseQuantity,
+
   emptyCart,
   emptyFavList,
 } = productsSlice.actions;

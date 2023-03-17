@@ -16,7 +16,6 @@ function* getSingleProductWorker(action: any): any {
     data.size = "xl";
     data.color = "red";
 
-    console.log(data);
     yield put(getSingleProductSuccess(data));
   } catch (error: any) {
     yield put(getSingleProductFail(error.message));

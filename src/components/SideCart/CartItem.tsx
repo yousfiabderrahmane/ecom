@@ -1,8 +1,5 @@
 import { useAppDispatch } from "../../redux/hooks";
-import {
-  decreaseQuantity,
-  increaseQuantity,
-} from "../../redux/products/productsSlice";
+import {} from "../../redux/products/productsSlice";
 import { product } from "../../redux/products/types";
 import styles from "./CartItem.module.scss";
 
@@ -13,12 +10,12 @@ interface CartItemProps {
 export const CartItem = ({ product }: CartItemProps) => {
   const dispatch = useAppDispatch();
 
-  const handleIncrease = () => {
-    dispatch(increaseQuantity({ id: product.id }));
-  };
-  const handleDecrease = () => {
-    dispatch(decreaseQuantity({ id: product.id }));
-  };
+  // const handleIncrease = () => {
+  //   dispatch(increaseQuantity({ id: product.id }));
+  // };
+  // const handleDecrease = () => {
+  //   dispatch(decreaseQuantity({ id: product.id }));
+  // };
 
   return (
     <div className={styles.cartItem}>
@@ -32,9 +29,9 @@ export const CartItem = ({ product }: CartItemProps) => {
           <p className={styles.name}>{product.title}</p>
         </div>
         <div className={styles.quantityButtons}>
-          <button onClick={handleDecrease}>-</button>
-          <p>{product.quantity}</p>
-          <button onClick={handleIncrease}>+</button>
+          <button>-</button>
+          <p>1</p>
+          <button>+</button>
         </div>
       </div>
     </div>
