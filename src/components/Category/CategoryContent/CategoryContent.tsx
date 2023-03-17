@@ -34,7 +34,7 @@ export const CategoryContent = ({
 
   const favoriteList = useAppSelector(selectFavorites);
 
-  const [sortedArr, setSortedArr] = useState<product[]>(thisProducts);
+  const [sortedArr, setSortedArr] = useState<product[]>([]);
 
   const handleHighest = useCallback(() => {
     setSortedArr(thisProducts.sort((a, b) => b.price - a.price));
@@ -80,6 +80,7 @@ export const CategoryContent = ({
     } else {
       handleNameRevert();
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [option, category, favoriteList]);
 

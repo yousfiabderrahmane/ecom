@@ -11,6 +11,7 @@ import {
   toggleFavorite,
   selectFavorites,
 } from "../../redux/products/productsSlice";
+import { useNavigate } from "react-router-dom";
 
 interface ProductProps {
   product: product;
@@ -18,11 +19,12 @@ interface ProductProps {
 
 export const Product = ({ product }: ProductProps) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const cart = useAppSelector((state) => selectCart(state));
   const favorites = useAppSelector(selectFavorites);
 
   const exists = cart.products.find((i) => i.id === product.id);
-
   const isFavorite = favorites.find((i) => i.id === product.id);
 
   //functions
@@ -31,6 +33,9 @@ export const Product = ({ product }: ProductProps) => {
   };
   const handleAddToCart = () => {
     dispatch(toggleCart({ id: product.id }));
+  };
+  const handleRedirect = () => {
+    navigate(`/product/${product.id}`);
   };
 
   //display rating stars
@@ -98,7 +103,7 @@ export const Product = ({ product }: ProductProps) => {
           >
             {exists ? "Remove From Cart" : "Add To Cart"}
           </button>
-          <button>More Details</button>
+          <button onClick={handleRedirect}>More Details</button>
         </div>
       </div>
     </div>

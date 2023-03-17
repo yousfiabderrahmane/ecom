@@ -1,5 +1,5 @@
 import { Navbar } from "./components/Navbar/Navbar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Suspense, useEffect } from "react";
 import React from "react";
 import { Loading } from "./components/LoadingGif/Loading";
@@ -34,7 +34,7 @@ function App() {
             />
             <Route path="/wishlist" element={<LazyWish />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </Suspense>
       </BrowserRouter>
     </div>

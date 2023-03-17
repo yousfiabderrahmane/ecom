@@ -3,7 +3,7 @@ import {
   selectCart,
   selectFavorites,
 } from "../../redux/products/productsSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 //components
 import { SideCart } from "../SideCart/SideCart";
 //svg
@@ -23,6 +23,7 @@ export const Navbar = () => {
   const error = useAppSelector((state) => state.products.error);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   //sidebar
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -36,8 +37,12 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", changeNav);
-  }, []);
+    if (location.pathname.slice(0, 9) != "/product/") {
+      window.addEventListener("scroll", changeNav);
+    } else {
+      setScroll(true);
+    }
+  }, [location.pathname, scroll]);
 
   return (
     <>
