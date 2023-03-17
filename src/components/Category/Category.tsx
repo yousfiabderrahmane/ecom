@@ -40,11 +40,9 @@ export const Category = ({ category }: CategoryProps) => {
   }, [category]);
 
   return (
-    <div className={styles.container}>
-      {error ? (
-        <Error error={error} />
-      ) : (
-        <>
+    <>
+      {!error && (
+        <div className={styles.container}>
           <FilterCategory
             setShowMode={setShowMode}
             showMode={showMode}
@@ -57,8 +55,8 @@ export const Category = ({ category }: CategoryProps) => {
             option={option}
             category={currentCategory}
           />
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };

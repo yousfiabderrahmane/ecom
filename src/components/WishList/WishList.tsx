@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
   emptyFavList,
@@ -31,6 +31,16 @@ const WishList = () => {
     setCurrentPage(currentPage - 1);
   };
 
+  useEffect(() => {
+    if (currentFavList.length === 0 && currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }, [currentFavList.length, currentPage]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className={styles.listContainer}>
       {currentFavList.length > 0 ? (
@@ -39,7 +49,7 @@ const WishList = () => {
             <button onClick={() => dispatch(emptyFavList())}>Clear</button>
           </div>
           <div className={styles.grid}>
-            {favoriteList.map((item) => (
+            {currentFavList.map((item) => (
               <Product key={item.id} product={item} />
             ))}
           </div>
