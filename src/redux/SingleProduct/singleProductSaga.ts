@@ -8,11 +8,16 @@ import {
 
 //worker
 function* getSingleProductWorker(action: any): any {
+  const { id } = action.payload;
   try {
-    const response = yield call(getSingleProduct, action.payload);
-    const singleProduct = yield response.json();
+    const response = yield call(getSingleProduct, id);
+    const data = yield response.json();
 
-    yield put(getSingleProductSuccess(singleProduct));
+    data.size = "xl";
+    data.color = "red";
+
+    console.log(data);
+    yield put(getSingleProductSuccess(data));
   } catch (error: any) {
     yield put(getSingleProductFail(error.message));
   }

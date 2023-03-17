@@ -16,7 +16,10 @@ const SingleProductSlice = createSlice({
   name: "SingleProduct",
   initialState,
   reducers: {
-    getSingleProductRequested: (state, action) => {
+    getSingleProductRequested: (
+      state,
+      action: PayloadAction<{ id: number }>
+    ) => {
       state.SingleProduct = initialSingleProduct;
       state.error = null; // in case kant
       state.isLoading = true;

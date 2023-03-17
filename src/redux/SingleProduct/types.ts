@@ -36,6 +36,6 @@ export const initialSingleProduct = {
   },
   isFavorite: false,
   quantity: 0,
-  size: "",
-  color: "",
+  size: "xl",
+  color: "red",
 };
