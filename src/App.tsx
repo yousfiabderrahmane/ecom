@@ -8,6 +8,9 @@ import { Footer } from "./components/Footer/Footer";
 // import { Shop } from "./pages/Shop";
 // import { SingleCategoryPage } from "./pages/SingleCategoryPage";
 
+const LazySingleProductPage = React.lazy(
+  () => import("./pages/SingleProductPage")
+);
 const LazyLanding = React.lazy(() => import("./pages/Landing"));
 const LazyShop = React.lazy(() => import("./pages/Shop"));
 const LazyWish = React.lazy(() => import("./pages/Wish"));
@@ -33,6 +36,7 @@ function App() {
               element={<LazySingleCategoryPage />}
             />
             <Route path="/wishlist" element={<LazyWish />} />
+            <Route path="/product/:id" element={<LazySingleProductPage />} />
           </Routes>
           {/* <Footer /> */}
         </Suspense>

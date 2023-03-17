@@ -1,0 +1,20 @@
+@import "../../variables";
+
+.headerContainer {
+  background-color: $secondaryColor;
+  padding: 20px;
+
+  div {
+    @include container();
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // height: 20vh;
+    width: 100%;
+    h1 {
+      font-size: 30px;
+      color: $quaternaryColor;
+      font-family: $titlesFont;
+    }
+  }
+}
