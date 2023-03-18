@@ -1,8 +1,4 @@
 import styles from "./Footer.module.scss";
-import { ReactComponent as LinkedInLogo } from "../../assets/svg/linkedin-svgrepo-com.svg";
-import { ReactComponent as FacebookLogo } from "../../assets/svg/facebook-svgrepo-com.svg";
-import { ReactComponent as InstagramLogo } from "../../assets/svg/instagram-svgrepo-com.svg";
-import { ReactComponent as YoutubeLogo } from "../../assets/svg/youtube-svgrepo-com.svg";
 
 export const Footer = () => {
   return (
@@ -66,21 +62,6 @@ export const Footer = () => {
               </a>
             </p>
           </div>
-          {/* <div className={styles.iconContainer}>
-            <InstagramLogo
-              className={`${styles.contactIcon} ${styles.instagram}`}
-            />
-
-            <YoutubeLogo
-              className={`${styles.contactIcon} ${styles.youtube}`}
-            />
-            <LinkedInLogo
-              className={`${styles.contactIcon} ${styles.linkedIn}`}
-            />
-            <FacebookLogo
-              className={`${styles.contactIcon} ${styles.facebook}`}
-            />
-          </div> */}
         </div>
       </div>
 

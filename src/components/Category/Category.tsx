@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../../redux/hooks";
 import { selectAllProducts } from "../../redux/products/productsSlice";
 import { CategoryContent } from "./CategoryContent/CategoryContent";
-import { product } from "../../redux/products/types";
-import Error from "../Error/Error";
 
 interface CategoryProps {
   category: string;

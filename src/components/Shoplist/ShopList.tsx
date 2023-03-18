@@ -71,6 +71,7 @@ export const ShopList = () => {
     } else {
       setThisCategoryProducts(women);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter, favorites]);
 
   useEffect(() => {
@@ -81,7 +82,7 @@ export const ShopList = () => {
     if (products.length < 1) {
       dispatch(getProductsRequested());
     }
-  }, []);
+  }, [dispatch, products.length]);
 
   return (
     <>

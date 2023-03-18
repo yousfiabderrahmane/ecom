@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./ShopHome.module.scss";
 import shopBg from "../../assets/images/shopBg.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -20,12 +19,6 @@ export const ShopHome = () => {
           placeholderSrc={shopBg}
           effect="blur"
         />
-        {/* <img
-          loading="lazy"
-          className={styles.backgroundImg}
-          src={shopBg}
-          alt="background"
-        /> */}
       </div>
 
       {error ? (

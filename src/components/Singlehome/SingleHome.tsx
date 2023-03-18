@@ -1,5 +1,4 @@
 import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import styles from "./SingleHome.module.scss";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../redux/hooks";
@@ -16,13 +15,6 @@ export const SingleHome = ({ src, category }: SingleHomeProps) => {
   return (
     <section className={styles.homeContainer}>
       <div className={styles.bgContainer}>
-        {/* <LazyLoadImage
-          alt={"bghome"}
-          effect="blur"
-          src={src}
-          placeholderSrc={src}
-          wrapperClassName={styles.BackGroundImage}
-        /> */}
         <img src={src} alt="adas" className={styles.BackGroundImage} />
       </div>
 

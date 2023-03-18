@@ -12,17 +12,11 @@ export type product = {
   isFavorite: boolean;
 };
 
-export type cartType = {
-  products: product[];
-  totalItems: number;
-  totalPrice: number;
-};
-
 export interface ProducstInitialType {
   products: product[];
   isLoading: boolean;
   error: null | string;
   favoriteProducts: product[];
-  cart: cartType;
+
   filter: string;
 }

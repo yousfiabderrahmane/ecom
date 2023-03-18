@@ -1,5 +1,5 @@
 import styles from "./Filter.module.scss";
-import { ReactComponent as DownArr } from "../../assets/svg/arrow-down.svg";
+
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { changeFilter, selectFilter } from "../../redux/products/productsSlice";
 

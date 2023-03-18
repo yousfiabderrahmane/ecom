@@ -7,11 +7,7 @@ const initialState: ProducstInitialType = {
   isLoading: false,
   error: null,
   favoriteProducts: [],
-  cart: {
-    products: [],
-    totalItems: 0,
-    totalPrice: 0,
-  },
+
   filter: "all",
 };
 
@@ -49,26 +45,6 @@ export const productsSlice = createSlice({
         state.favoriteProducts.push(thisProduct);
       }
     },
-    toggleCart: (state, action: PayloadAction<{ id: number }>) => {
-      const { id } = action.payload;
-
-      const thisProduct = state.products.find((product) => product.id === id);
-
-      const alreadyExists = state.cart.products.find(
-        (product) => product.id === id
-      );
-
-      if (thisProduct && alreadyExists) {
-        state.cart.products = state.cart.products.filter(
-          (product) => product.id !== id
-        );
-      } else if (thisProduct) {
-        state.cart.products.push({ ...thisProduct });
-      }
-    },
-    emptyCart: (state) => {
-      state.cart.products = [];
-    },
 
     changeFilter: (state, action: PayloadAction<string>) => {
       state.filter = action.payload;
@@ -85,10 +61,9 @@ export const {
   getProductsSucces,
   getProductsFail,
   toggleFavorite,
-  toggleCart,
+
   changeFilter,
 
-  emptyCart,
   emptyFavList,
 } = productsSlice.actions;
 
@@ -98,7 +73,6 @@ export const selectAllProducts = (state: RootState) => state.products.products;
 export const selectFilter = (state: RootState) => state.products.filter;
 export const selectFavorites = (state: RootState) =>
   state.products.favoriteProducts;
-export const selectCart = (state: RootState) => state.products.cart;
 export const selectProductById = (state: RootState, id: number) =>
   state.products.products.find((product) => product.id === id);
 

@@ -8,7 +8,6 @@ import { Product } from "../Product/Product";
 import styles from "./WishList.module.scss";
 import { Pagination } from "../Pagination/Pagination";
 import { ReactComponent as EmptyFav } from "../../assets/svg/emptyFav.svg";
-import { useDispatch } from "react-redux";
 
 const WishList = () => {
   const dispatch = useAppDispatch();

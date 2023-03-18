@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  selectCart,
-  selectFavorites,
-} from "../../redux/products/productsSlice";
+import { selectFavorites } from "../../redux/products/productsSlice";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 //components
 import { SideCart } from "../SideCart/SideCart";
@@ -29,7 +26,6 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [canShow, setCanShow] = useState(false);
 
-  const cart = useAppSelector(selectCart);
   const favoriteList = useAppSelector(selectFavorites);
 
   const changeNav = () => {
@@ -122,9 +118,9 @@ export const Navbar = () => {
           <button className={styles.navRedirectButtons}>
             Cart <NavCart fill="white" className={styles.icon} />
           </button>
-          {cart.products.length > 0 && (
+          {/* {cart.products.length > 0 && (
             <span className={styles.overlayInfo}>{cart.products.length}</span>
-          )}
+          )} */}
         </div>
       </nav>
       {canShow && <SideCart setIsOpen={setIsOpen} isOpen={isOpen} />}

@@ -5,9 +5,6 @@ import { ReactComponent as RemoveFav } from "../../assets/svg/removeFav.svg";
 import { ReactComponent as Star } from "../../assets/svg/star.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
-  toggleCart,
-  selectCart,
-  selectProductById,
   toggleFavorite,
   selectFavorites,
 } from "../../redux/products/productsSlice";
@@ -21,19 +18,15 @@ export const Product = ({ product }: ProductProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const cart = useAppSelector((state) => selectCart(state));
   const favorites = useAppSelector(selectFavorites);
 
-  const exists = cart.products.find((i) => i.id === product.id);
   const isFavorite = favorites.find((i) => i.id === product.id);
 
   //functions
   const handleAddFav = () => {
     dispatch(toggleFavorite({ id: product.id }));
   };
-  const handleAddToCart = () => {
-    dispatch(toggleCart({ id: product.id }));
-  };
+
   const handleRedirect = () => {
     navigate(`/product/${product.id}`);
   };

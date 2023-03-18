@@ -22,7 +22,7 @@ const SingleProduct = ({ randomReduction }: IProps) => {
   );
 
   const favorite = useAppSelector((state) => state.products.favoriteProducts);
-  const cart = useAppSelector((state) => state.products.cart);
+  const cart = useAppSelector((state) => state.singleProduct.cart);
   const dispatch = useAppDispatch();
 
   const exists = favorite.find((product) => product.id === SingleProduct.id);

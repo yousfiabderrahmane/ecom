@@ -92,7 +92,6 @@ export const CategoryContent = ({
 
   return (
     <>
-      {/* {isLoading && <h1 className={styles.loading}>Loading ...</h1>} */}
       {isLoading && <Loading />}
 
       {showMode === "dots" ? (

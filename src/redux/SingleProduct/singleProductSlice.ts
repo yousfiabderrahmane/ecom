@@ -1,4 +1,4 @@
-import { product } from "./../products/types";
+import { RootState } from "./../store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
   SingleProductInitialType,
@@ -10,6 +10,11 @@ const initialState: SingleProductInitialType = {
   SingleProduct: initialSingleProduct,
   isLoading: false,
   error: null,
+  cart: {
+    products: [],
+    totalItems: 0,
+    totalPrice: 0,
+  },
 };
 
 const SingleProductSlice = createSlice({
@@ -32,6 +37,13 @@ const SingleProductSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
+    addToCart: (state, action) => {
+      const { quantity } = action.payload;
+
+      state.SingleProduct.quantity = quantity;
+
+      state.cart.products.push(state.SingleProduct);
+    },
   },
 });
 
@@ -39,6 +51,10 @@ export const {
   getSingleProductRequested,
   getSingleProductSuccess,
   getSingleProductFail,
+  addToCart,
 } = SingleProductSlice.actions;
+
+export const selectCart = (state: RootState) =>
+  state.singleProduct.cart.products;
 
 export default SingleProductSlice.reducer;

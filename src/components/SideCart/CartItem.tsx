@@ -1,5 +1,3 @@
-import { useAppDispatch } from "../../redux/hooks";
-import {} from "../../redux/products/productsSlice";
 import { product } from "../../redux/products/types";
 import styles from "./CartItem.module.scss";
 
@@ -8,15 +6,6 @@ interface CartItemProps {
 }
 
 export const CartItem = ({ product }: CartItemProps) => {
-  const dispatch = useAppDispatch();
-
-  // const handleIncrease = () => {
-  //   dispatch(increaseQuantity({ id: product.id }));
-  // };
-  // const handleDecrease = () => {
-  //   dispatch(decreaseQuantity({ id: product.id }));
-  // };
-
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemLeft}>

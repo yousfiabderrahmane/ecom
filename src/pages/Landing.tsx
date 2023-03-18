@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import { Navbar } from "../components/Navbar/Navbar";
+import { useEffect } from "react";
 import { Home } from "../components/Home/Home";
 import { Services } from "../components/Services/Services";
 import { Products } from "../components/Products/Products";
 import { Repair } from "../components/Repair/Repair";
 import { Newsletter } from "../components/Newsletter/Newsletter";
-import { Footer } from "../components/Footer/Footer";
 
 const Landing = () => {
   useEffect(() => {
@@ -23,7 +21,6 @@ const Landing = () => {
       <Products />
       <Repair />
       <Newsletter />
-      {/* <Footer /> */}
     </>
   );
 };

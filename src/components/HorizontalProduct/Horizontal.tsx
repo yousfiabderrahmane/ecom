@@ -2,34 +2,29 @@ import { product } from "../../redux/products/types";
 import styles from "./Horizontal.module.scss";
 import { ReactComponent as AddToFav } from "../../assets/svg/AddToFav.svg";
 import { ReactComponent as RemoveFav } from "../../assets/svg/removeFav.svg";
-import { ReactComponent as Star } from "../../assets/svg/star.svg";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
-  toggleCart,
-  selectCart,
   toggleFavorite,
   selectFavorites,
 } from "../../redux/products/productsSlice";
+import { useNavigate } from "react-router-dom";
 interface IProps {
   product: product;
 }
 
 export const Horizontal = ({ product }: IProps) => {
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((state) => selectCart(state));
-
+  const navigate = useNavigate();
   const favorites = useAppSelector(selectFavorites);
 
   const isFavorite = favorites.find((i) => i.id === product.id);
-
-  const exists = cart.products.find((i) => i.id === product.id);
 
   //functions
   const handleAddFav = () => {
     dispatch(toggleFavorite({ id: product.id }));
   };
-  const handleAddToCart = () => {
-    dispatch(toggleCart({ id: product.id }));
+  const handleRedirect = () => {
+    navigate(`/product/${product.id}`);
   };
 
   return (
@@ -62,13 +57,7 @@ export const Horizontal = ({ product }: IProps) => {
           {product.description.substring(0, 100)}...
         </p>
         <div className={styles.buttonsContainer}>
-          <button
-            className={exists && styles.cantAdd}
-            onClick={handleAddToCart}
-          >
-            {exists ? "Remove From Cart" : "Add To Cart"}
-          </button>
-          <button>More Details</button>
+          <button onClick={handleRedirect}>More Details</button>
         </div>
       </div>
     </div>

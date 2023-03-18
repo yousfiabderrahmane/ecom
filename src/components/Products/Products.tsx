@@ -1,10 +1,4 @@
-import { useAppSelector } from "../../redux/hooks";
 import styles from "./Products.module.scss";
-import { ReactComponent as Star } from "../../assets/svg/star.svg";
-import { ReactComponent as Eye } from "../../assets/svg/eye.svg";
-import { Product } from "../Product/Product";
-import { Filter } from "../Filter/Filter";
-import { selectFilter } from "../../redux/products/productsSlice";
 import womenBg from "../../assets/images/womenClothing.jpg";
 import menBg from "../../assets/images/menClothing.jpg";
 import jeweleryBg from "../../assets/images/jewelery.jpg";

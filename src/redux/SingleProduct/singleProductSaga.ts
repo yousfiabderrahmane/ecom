@@ -13,9 +13,6 @@ function* getSingleProductWorker(action: any): any {
     const response = yield call(getSingleProduct, id);
     const data = yield response.json();
 
-    data.size = "xl";
-    data.color = "red";
-
     yield put(getSingleProductSuccess(data));
   } catch (error: any) {
     yield put(getSingleProductFail(error.message));

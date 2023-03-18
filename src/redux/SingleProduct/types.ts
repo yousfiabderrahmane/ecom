@@ -21,7 +21,13 @@ export interface SingleProductInitialType {
   SingleProduct: singleProduct;
   isLoading: boolean;
   error: string | null;
+  cart: cartType;
 }
+export type cartType = {
+  products: singleProduct[];
+  totalItems: number;
+  totalPrice: number;
+};
 
 export const initialSingleProduct = {
   id: 0,
@@ -35,7 +41,7 @@ export const initialSingleProduct = {
     count: 0,
   },
   isFavorite: false,
-  quantity: 0,
+  quantity: 1,
   size: "xl",
   color: "red",
 };
