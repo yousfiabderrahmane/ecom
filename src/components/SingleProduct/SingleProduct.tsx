@@ -8,6 +8,10 @@ import { ReactComponent as Gift } from "../../assets/svg/singleGift.svg";
 import { ReactComponent as Delivery } from "../../assets/svg/singleDelivery.svg";
 import { useEffect, useState } from "react";
 import { toggleFavorite } from "../../redux/products/productsSlice";
+import {
+  addToCart,
+  removeFromCart,
+} from "../../redux/SingleProduct/singleProductSlice";
 
 const colors = ["#f7967c", "#9999ff", "#99cc99"];
 const sizes = ["S", "M", "L", "XL"];
@@ -25,12 +29,32 @@ const SingleProduct = ({ randomReduction }: IProps) => {
   const cart = useAppSelector((state) => state.singleProduct.cart);
   const dispatch = useAppDispatch();
 
+  console.log(cart);
+
   const exists = favorite.find((product) => product.id === SingleProduct.id);
+
+  const inCart = cart.products.find(
+    (product) => product.id === SingleProduct.id
+  );
 
   const [numberOfItems, setNumberOfItems] = useState(1);
   const [currentColor, setCurrentColor] = useState("#f7967c");
   const [currentSize, setCurrentSize] = useState("S");
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAddToCart = () => {
+    dispatch(
+      addToCart({
+        quantity: numberOfItems,
+        color: currentColor,
+        size: currentSize,
+      })
+    );
+    setNumberOfItems(1);
+  };
+  const handleRemove = () => {
+    dispatch(removeFromCart({ id: SingleProduct.id }));
+  };
 
   useEffect(() => {
     if (exists) {
@@ -110,22 +134,33 @@ const SingleProduct = ({ randomReduction }: IProps) => {
         </div>
 
         <div className={styles.addToCartContainer}>
-          <div className={styles.quantityButtons}>
-            <button
-              onClick={() => {
-                numberOfItems !== 1 && setNumberOfItems(numberOfItems - 1);
-              }}
-            >
-              -
-            </button>
-            <p>{numberOfItems}</p>
-            <button onClick={() => setNumberOfItems(numberOfItems + 1)}>
-              +
-            </button>
-          </div>
-          <div className={styles.addToCartButton}>
-            <button>ADD TO CART</button>
-          </div>
+          {inCart ? (
+            <div className={`${styles.addToCartButton} ${styles.fullWidth}`}>
+              {" "}
+              <button onClick={handleRemove} className={styles.removeBtn}>
+                REMOVE FROM CART
+              </button>{" "}
+            </div>
+          ) : (
+            <>
+              <div className={styles.quantityButtons}>
+                <button
+                  onClick={() => {
+                    numberOfItems !== 1 && setNumberOfItems(numberOfItems - 1);
+                  }}
+                >
+                  -
+                </button>
+                <p>{numberOfItems}</p>
+                <button onClick={() => setNumberOfItems(numberOfItems + 1)}>
+                  +
+                </button>
+              </div>
+              <div className={styles.addToCartButton}>
+                <button onClick={handleAddToCart}>ADD TO CART</button>
+              </div>
+            </>
+          )}
         </div>
 
         <div className={styles.wishlistAndQuestionContainer}>

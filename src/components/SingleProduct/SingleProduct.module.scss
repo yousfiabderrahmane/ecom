@@ -141,7 +141,7 @@
     .addToCartContainer {
       display: flex;
       justify-content: space-between;
-      // gap: 200px;
+      padding: 5px 10px;
       .quantityButtons {
         background-color: #e6e6e6;
         flex-basis: 33%;
@@ -168,6 +168,11 @@
       }
       .addToCartButton {
         flex-basis: 65%;
+
+        .removeBtn {
+          padding: 10px;
+          width: 100%;
+        }
         button {
           height: 100%;
           width: 100%;
@@ -202,6 +207,9 @@
             transform: unset;
           }
         }
+      }
+      .fullWidth {
+        flex-basis: 100%;
       }
     }
     .wishlistAndQuestionContainer {

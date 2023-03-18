@@ -26,6 +26,7 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [canShow, setCanShow] = useState(false);
 
+  const cart = useAppSelector((state) => state.singleProduct.cart);
   const favoriteList = useAppSelector(selectFavorites);
 
   const changeNav = () => {
@@ -118,9 +119,9 @@ export const Navbar = () => {
           <button className={styles.navRedirectButtons}>
             Cart <NavCart fill="white" className={styles.icon} />
           </button>
-          {/* {cart.products.length > 0 && (
+          {cart.products.length > 0 && (
             <span className={styles.overlayInfo}>{cart.products.length}</span>
-          )} */}
+          )}
         </div>
       </nav>
       {canShow && <SideCart setIsOpen={setIsOpen} isOpen={isOpen} />}

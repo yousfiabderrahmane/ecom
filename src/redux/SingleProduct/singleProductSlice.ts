@@ -37,12 +37,27 @@ const SingleProductSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    addToCart: (state, action) => {
-      const { quantity } = action.payload;
+    addToCart: (
+      state,
+      action: PayloadAction<{ quantity: number; color: string; size: string }>
+    ) => {
+      const { quantity, color, size } = action.payload;
 
       state.SingleProduct.quantity = quantity;
+      state.SingleProduct.color = color;
+      state.SingleProduct.size = size;
 
       state.cart.products.push(state.SingleProduct);
+    },
+    removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
+
+      state.cart.products = state.cart.products.filter(
+        (product) => product.id !== id
+      );
+    },
+    emptyCart: (state) => {
+      state.cart.products = [];
     },
   },
 });
@@ -52,6 +67,8 @@ export const {
   getSingleProductSuccess,
   getSingleProductFail,
   addToCart,
+  removeFromCart,
+  emptyCart,
 } = SingleProductSlice.actions;
 
 export const selectCart = (state: RootState) =>
