@@ -11,6 +11,7 @@ import { getProducts } from "./api";
 function* getProductsWorker(): any {
   try {
     const response = yield call(getProducts);
+    console.log(response);
     if (response.ok) {
       const data = yield response.json();
       const shuffledData = data.sort(() => {

@@ -4,7 +4,6 @@ import styles from "./Repair.module.scss";
 export const Repair = () => {
   return (
     <section className={styles.repairContainer}>
-      <div className={styles.bg}></div>
       <div className={styles.content}>
         <p>Repair Services</p>
         <h1>
