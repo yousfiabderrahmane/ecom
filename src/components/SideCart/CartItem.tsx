@@ -6,8 +6,8 @@ import styles from "./CartItem.module.scss";
 import { useAppDispatch } from "../../redux/hooks";
 import {
   decreaseQuantity,
-  deleteFromCart,
   increaseQuantity,
+  removeFromCart,
 } from "../../redux/SingleProduct/singleProductSlice";
 
 interface CartItemProps {
@@ -66,7 +66,7 @@ export const CartItem = ({ product }: CartItemProps) => {
         </p>
       </div>
       <button
-        onClick={() => dispatch(deleteFromCart({ id: product.id }))}
+        onClick={() => dispatch(removeFromCart({ id: product.id }))}
         className={styles.deleteBtn}
       >
         X

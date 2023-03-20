@@ -4,7 +4,7 @@
   @include container();
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   padding: 20px;
 
   .productsGridContainer {
@@ -31,7 +31,7 @@
   display: grid;
   grid-gap: 10px;
   grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col3-end];
-  grid-template-rows: [row1-start] 300px [row2-start] 300px [row2-end];
+  grid-template-rows: [row1-start] 280px [row2-start] 280px [row2-end];
   background-color: #fff;
   color: #444;
   justify-content: center;

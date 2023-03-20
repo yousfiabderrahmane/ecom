@@ -48,6 +48,7 @@ const SingleProduct = ({ randomReduction }: IProps) => {
         quantity: numberOfItems,
         color: currentColor,
         size: currentSize,
+        id: SingleProduct.id,
       })
     );
     setNumberOfItems(1);

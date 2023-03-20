@@ -41,6 +41,9 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
             <div className={styles.cartButtons}>
               <button onClick={() => dispatch(emptyCart())}>Empty Cart</button>
               <button>View In Detail</button>
+              <p>total price : {cart.totalPrice}</p>
+              <p>total items : {cart.totalItems}</p>
+              <p></p>
             </div>
           </div>
         ) : (
