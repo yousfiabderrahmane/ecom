@@ -77,15 +77,15 @@ const SingleProduct = ({ randomReduction }: IProps) => {
 
         <div className={styles.ratingPriceContainer}>
           <div className={styles.priceContainer}>
-            <h3 className={styles.newPrice}>${SingleProduct.price} / </h3>
+            <p className={styles.newPrice}>${SingleProduct.price} / </p>
             <del>
-              <h3 className={styles.oldPrice}>
+              <p className={styles.oldPrice}>
                 $
                 {(
                   SingleProduct.price +
                   (SingleProduct.price * randomReduction) / 100
                 ).toFixed(2)}
-              </h3>
+              </p>
             </del>
             <p className={styles.reduction}>{randomReduction}%</p>
           </div>
@@ -101,7 +101,7 @@ const SingleProduct = ({ randomReduction }: IProps) => {
         </div>
 
         <div className={styles.colorsContainer}>
-          <h3>Color :</h3>
+          <h2>Color :</h2>
           <div className={styles.buttonsContainer}>
             {colors.map((color) => (
               <button

@@ -19,6 +19,8 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
 
   const products = useAppSelector((state) => state.singleProduct.cart.products);
 
+  const cart = useAppSelector((state) => state.singleProduct.cart);
+
   return (
     <div className={`${isOpen && styles.sideCartOverlay} `}>
       <div className={`${styles.sideCart} ${isOpen && styles.sideCartOpen}`}>
@@ -27,8 +29,8 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
           <h1>Cart</h1>
         </div>
 
-        {isOpen && (
-          <>
+        {isOpen && products.length > 0 ? (
+          <div className={styles.bottom}>
             <div className={styles.cartItems}>
               {products.length > 0 &&
                 products.map((product) => (
@@ -36,20 +38,19 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
                 ))}
             </div>
 
-            {products.length > 0 ? (
-              <div className={styles.cartButtons}>
-                <button onClick={() => dispatch(emptyCart())}>
-                  Empty Cart
-                </button>
-                <button>View In Detail</button>
-              </div>
-            ) : (
-              <div className={styles.emptyCartContainer}>
-                <EmptyCart className={styles.emptyCart} />
-                <h1>Currently Empty</h1>
-              </div>
-            )}
-          </>
+            <div className={styles.cartButtons}>
+              <button onClick={() => dispatch(emptyCart())}>Empty Cart</button>
+              <button>View In Detail</button>
+            </div>
+          </div>
+        ) : (
+          isOpen &&
+          products.length < 1 && (
+            <div className={styles.emptyCartContainer}>
+              <EmptyCart className={styles.emptyCart} />
+              <h1>Currently Empty</h1>
+            </div>
+          )
         )}
       </div>
     </div>

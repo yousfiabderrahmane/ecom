@@ -13,13 +13,13 @@
     // height: 20vh;
     width: 100%;
     h1 {
-      font-size: 30px;
-      color: $quaternaryColor;
-      font-family: $titlesFont;
+      font-size: 20px;
+      // color: $tertiaryColor;
+      font-family: $paragraphsFont;
       a {
         text-decoration: none;
         color: $quaternaryColor;
-        transition: color 0.3s;
+        transition: color 0.2s;
         &:hover {
           color: $tertiaryColor;
         }

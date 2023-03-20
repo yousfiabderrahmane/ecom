@@ -59,6 +59,35 @@ const SingleProductSlice = createSlice({
     emptyCart: (state) => {
       state.cart.products = [];
     },
+    increaseQuantity: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
+
+      const thisProduct = state.cart.products.find(
+        (product) => product.id === id
+      );
+
+      if (thisProduct) {
+        thisProduct.quantity++;
+      }
+    },
+    decreaseQuantity: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
+
+      const thisProduct = state.cart.products.find(
+        (product) => product.id === id
+      );
+
+      if (thisProduct) {
+        thisProduct.quantity--;
+      }
+    },
+    deleteFromCart: (state, action: PayloadAction<{ id: number }>) => {
+      const { id } = action.payload;
+
+      state.cart.products = state.cart.products.filter(
+        (product) => product.id !== id
+      );
+    },
   },
 });
 
@@ -69,6 +98,9 @@ export const {
   addToCart,
   removeFromCart,
   emptyCart,
+  increaseQuantity,
+  decreaseQuantity,
+  deleteFromCart,
 } = SingleProductSlice.actions;
 
 export const selectCart = (state: RootState) =>

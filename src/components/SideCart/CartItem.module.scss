@@ -1,69 +1,67 @@
 @import "../../variables";
 
-.cartItem {
-  padding: 10px;
+.item {
   display: flex;
+  // padding: 20px;
   justify-content: space-between;
-  gap: 40px;
-  width: 90%;
-  background-color: white;
-  border: 2px solid $tertiaryColor;
-  border-radius: 10px;
-  height: 200px;
+  width: 100%;
+  position: relative;
 
-  .itemLeft {
+  .left {
+    flex-basis: 30%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    .imageContainer {
-      height: 100%;
-      width: 100%;
-      padding: 10px;
-      border-radius: 20px;
+    justify-content: space-between;
+    .buttonsContainer {
+      flex-basis: 20%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      background-color: #e6e6e6;
+
+      // justify-content: center;
       align-items: center;
+      button {
+        flex-basis: 40%;
+        width: 100%;
+        background-color: transparent;
+        border: 0;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.2s;
+        cursor: pointer;
+        &:hover {
+          background-color: #d9d9d9;
+        }
+      }
+    }
+
+    .imageContainer {
+      flex-basis: 75%;
+      height: 100px;
       img {
         height: 100%;
         width: 100%;
       }
     }
   }
-  .itemRight {
-    width: 50%;
+
+  .right {
+    flex-basis: 65%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 30px;
-    .itemInfo {
-      .name {
-        font-weight: bold;
-        color: $secondaryColor;
-      }
-    }
-    .quantityButtons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      p {
-        font-size: 20px;
-      }
-      button {
-        padding: 0px 5px;
-        font-size: 20px;
-        font-weight: bold;
-        border: 2px solid $tertiaryColor;
-        border-radius: 5px;
-        background-color: $primaryColor;
-        color: $tertiaryColor;
-        cursor: pointer;
-        transition: all 0.2s;
-        &:hover {
-          transform: scale(1.1);
-        }
-      }
-    }
+    justify-content: space-between;
+  }
+  .deleteBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #ffb3b3;
+    padding: 2px 5px;
+    color: #ff4d4d;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
   }
 }

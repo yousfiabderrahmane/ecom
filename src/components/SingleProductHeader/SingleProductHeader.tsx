@@ -28,11 +28,11 @@ export const SingleProductHeader = () => {
     >
       <div>
         <h1>
-          <Link to={"/"}>Home </Link> / <Link to={"/shop"}>Products</Link> /{" "}
+          <Link to={"/"}>Home /</Link> <Link to={"/shop"}>Products /</Link>{" "}
           <Link to={`/products/${currentCategory}`}>
-            {singleProduct.category}
+            {singleProduct.category} /
           </Link>{" "}
-          / {singleProduct.title}
+          {singleProduct.title}
         </h1>
       </div>
     </section>
