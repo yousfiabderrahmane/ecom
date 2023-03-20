@@ -26,7 +26,11 @@ const PopQuestion = ({ isOpen, setIsOpen }: IProps) => {
 
   return (
     <div className={styles.overlay}>
-      <div className={`${styles.popup} ${isSubmitted ? styles.submitted : ""}`}>
+      <div
+        className={`${styles.popup} ${
+          isSubmitted ? styles.submitted : ""
+        } animate__animated animate__zoomIn`}
+      >
         {isSubmitted ? (
           <>
             <p>Your question has been sent!</p>
@@ -42,6 +46,9 @@ const PopQuestion = ({ isOpen, setIsOpen }: IProps) => {
           </>
         ) : (
           <>
+            <button className={styles.closeMe} onClick={() => setIsOpen(false)}>
+              X
+            </button>
             <h2>Ask your question</h2>
             <form onSubmit={handleSubmit}>
               <label>

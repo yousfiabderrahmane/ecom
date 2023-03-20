@@ -1,0 +1,44 @@
+@import "../../../../variables";
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      color: $quaternaryColor;
+    }
+    p {
+      color: #b3b3b3;
+    }
+  }
+
+  .bottomSection {
+    display: flex;
+    justify-content: space-around;
+    div {
+      flex-basis: 32%;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      h4 {
+        color: $tertiaryColor;
+      }
+    }
+
+    .list {
+      list-style-type: circle;
+      li {
+        color: $tertiaryColor;
+        span {
+          color: black;
+        }
+      }
+    }
+  }
+}

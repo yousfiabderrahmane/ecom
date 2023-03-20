@@ -24,6 +24,23 @@
   max-width: 90%;
   max-height: 90%;
   overflow: auto;
+  .closeMe {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px 10px;
+    background-color: #ffb3b3;
+    color: #ff4d4d;
+    font-size: 12px;
+    border: 0;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      padding: 6px 11px;
+    }
+  }
 }
 
 .popup.submitted {
