@@ -42,7 +42,7 @@ const PopQuestion = ({ isOpen, setIsOpen }: IProps) => {
           </>
         ) : (
           <>
-            <h2>Contact Us</h2>
+            <h2>Ask your question</h2>
             <form onSubmit={handleSubmit}>
               <label>
                 Email:
@@ -72,7 +72,7 @@ const PopQuestion = ({ isOpen, setIsOpen }: IProps) => {
                 />
               </label>
               <label>
-                Question:
+                <p> Question:</p>
                 <textarea
                   value={question}
                   onChange={(event) => setQuestion(event.target.value)}

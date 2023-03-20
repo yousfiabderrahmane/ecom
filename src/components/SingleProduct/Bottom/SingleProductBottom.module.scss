@@ -1,0 +1,26 @@
+@import "../../../variables";
+
+.bottomSection {
+  @include container();
+
+  .filterSection {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-bottom: 1px solid $secondaryColor;
+    .section {
+      padding: 10px;
+      transition: all 0.2s;
+      border-bottom: 2px solid transparent;
+      color: $quaternaryColor;
+      cursor: pointer;
+      &:hover {
+        color: $tertiaryColor;
+      }
+    }
+    .active {
+      border-bottom: 2px solid $tertiaryColor;
+      color: $tertiaryColor;
+    }
+  }
+}
