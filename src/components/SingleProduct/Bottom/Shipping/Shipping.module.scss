@@ -1,0 +1,14 @@
+@import "../../../../variables";
+
+.shippingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  h3 {
+    color: $quaternaryColor;
+  }
+  p {
+    color: #b3b3b3;
+  }
+}

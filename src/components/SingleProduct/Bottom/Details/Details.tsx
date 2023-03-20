@@ -8,7 +8,7 @@ interface IProps {
 export const Details = ({ singleProduct }: IProps) => {
   return (
     <section
-      className={`${styles.detailsContainer} animate__animated animate__fadeIn`}
+      className={`${styles.detailsContainer} animate__animated animate__fadeInUp animate__faster`}
     >
       <div className={styles.topSection}>
         <h3>{singleProduct.title}</h3>
