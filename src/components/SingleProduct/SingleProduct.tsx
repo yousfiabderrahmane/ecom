@@ -12,6 +12,7 @@ import {
   addToCart,
   removeFromCart,
 } from "../../redux/SingleProduct/singleProductSlice";
+import PopQuestion from "./Question/PopQuestion";
 
 const colors = ["#f7967c", "#9999ff", "#99cc99"];
 const sizes = ["S", "M", "L", "XL"];
@@ -41,6 +42,8 @@ const SingleProduct = ({ randomReduction }: IProps) => {
   const [currentColor, setCurrentColor] = useState("#f7967c");
   const [currentSize, setCurrentSize] = useState("S");
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleAddToCart = () => {
     dispatch(
@@ -186,7 +189,10 @@ const SingleProduct = ({ randomReduction }: IProps) => {
             <p>{isFavorite ? "Remove From Wishlist" : "Add To Wishlist"}</p>
           </div>
           <div className={styles.question}>
-            <Question className={styles.miniIcon} />
+            <Question
+              onClick={() => setIsOpen(true)}
+              className={styles.miniIcon}
+            />
             <p>Ask a Question</p>
           </div>
         </div>
@@ -206,6 +212,8 @@ const SingleProduct = ({ randomReduction }: IProps) => {
           </div>
         </div>
       </div>
+
+      {isOpen && <PopQuestion isOpen={isOpen} setIsOpen={setIsOpen} />}
     </section>
   );
 };
