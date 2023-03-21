@@ -8,49 +8,51 @@ import {
 } from "./types";
 import moment from "moment";
 
+const initialReviews = [
+  {
+    id: 1,
+    rating: 4,
+    name: "Leanne Graham",
+    email: "Sincere@april.biz",
+    date: new Date().toISOString(),
+    title: "This is wholesome",
+    isEditable: false,
+
+    content:
+      "Airedale hard cheese mozzarella. Pecorino melted cheese port-salut emmental babybel cheese and wine melted cheese manchego. Everyone loves blue castello everyone loves fromage cheese slices airedale cheddar cream cheese.",
+    photo: "https://randomuser.me/api/portraits/women/60.jpg",
+  },
+  {
+    id: 2,
+    name: "Ervin Howell",
+    email: "Shanna@melissa.tv",
+    rating: 2,
+    date: new Date().toISOString(),
+    isEditable: false,
+    title: "I mean, whatever ....",
+    content:
+      "Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps.",
+    photo: "https://randomuser.me/api/portraits/men/60.jpg",
+  },
+  {
+    id: 3,
+    name: "Clemthine Rmayn",
+    email: "hisdaughter@rmayn.com",
+    rating: 5,
+    date: new Date().toISOString(),
+    isEditable: false,
+    title: "Very exclusive !",
+    content:
+      "Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop.",
+    photo: "https://randomuser.me/api/portraits/men/61.jpg",
+  },
+];
+
 const initialState: SingleProductInitialType = {
   SingleProduct: initialSingleProduct,
   isLoading: false,
   error: null,
-  reviews: [
-    {
-      id: 1,
-      rating: 4,
-      name: "Leanne Graham",
-      email: "Sincere@april.biz",
-      date: new Date().toISOString(),
-      title: "This is wholesome",
-      isEditable: false,
-
-      content:
-        "Airedale hard cheese mozzarella. Pecorino melted cheese port-salut emmental babybel cheese and wine melted cheese manchego. Everyone loves blue castello everyone loves fromage cheese slices airedale cheddar cream cheese.",
-      photo: "https://randomuser.me/api/portraits/women/60.jpg",
-    },
-    {
-      id: 2,
-      name: "Ervin Howell",
-      email: "Shanna@melissa.tv",
-      rating: 2,
-      date: new Date().toISOString(),
-      isEditable: false,
-      title: "I mean, whatever ....",
-      content:
-        "Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps.",
-      photo: "https://randomuser.me/api/portraits/men/60.jpg",
-    },
-    {
-      id: 3,
-      name: "Clemthine Rmayn",
-      email: "hisdaughter@rmayn.com",
-      rating: 5,
-      date: new Date().toISOString(),
-      isEditable: false,
-      title: "Very exclusive !",
-      content:
-        "Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop.",
-      photo: "https://randomuser.me/api/portraits/men/61.jpg",
-    },
-  ],
+  reviews: initialReviews,
   cart: {
     products: [],
     totalItems: 0,
@@ -167,6 +169,9 @@ const SingleProductSlice = createSlice({
 
       state.reviews.push(newReview);
     },
+    refreshReviews: (state) => {
+      state.reviews = initialReviews;
+    },
   },
 });
 
@@ -180,6 +185,7 @@ export const {
   increaseQuantity,
   decreaseQuantity,
   addReview,
+  refreshReviews,
 } = SingleProductSlice.actions;
 
 export const selectCart = (state: RootState) =>

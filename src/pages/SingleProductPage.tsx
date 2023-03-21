@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import { SingleProductHeader } from "../components/SingleProductHeader/SingleProductHeader";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { getSingleProductRequested } from "../redux/SingleProduct/singleProductSlice";
+import {
+  getSingleProductRequested,
+  refreshReviews,
+} from "../redux/SingleProduct/singleProductSlice";
 import { Loading } from "../components/LoadingGif/Loading";
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 
@@ -16,6 +19,10 @@ const SingleProductPage = () => {
   useEffect(() => {
     dispatch(getSingleProductRequested({ id: Number(id) }));
     window.scrollTo(0, 0);
+
+    return () => {
+      dispatch(refreshReviews());
+    };
   }, [dispatch, id]);
   return (
     <section>
