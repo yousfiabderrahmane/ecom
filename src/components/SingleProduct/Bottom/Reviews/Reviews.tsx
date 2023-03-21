@@ -2,8 +2,10 @@ import { singleProduct } from "../../../../redux/SingleProduct/types";
 import styles from "./Reviews.module.scss";
 import { ReactComponent as RatingStar } from "../../../../assets/svg/fillStar.svg";
 import moment from "moment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewReview from "./NewReview";
+import userImage from "../../../../assets/images/wishBg.jpg";
+import { useAppSelector } from "../../../../redux/hooks";
 
 interface IProps {
   singleProduct: singleProduct;
@@ -11,49 +13,12 @@ interface IProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const fakeReviews = [
-  {
-    id: 1,
-    rating: 4,
-    name: "Leanne Graham",
-    email: "Sincere@april.biz",
-    date: new Date().toUTCString(),
-    title: "This is wholesome",
-    isEditable: false,
-
-    content:
-      "Airedale hard cheese mozzarella. Pecorino melted cheese port-salut emmental babybel cheese and wine melted cheese manchego. Everyone loves blue castello everyone loves fromage cheese slices airedale cheddar cream cheese.",
-    photo: "https://randomuser.me/api/portraits/women/60.jpg",
-  },
-  {
-    id: 2,
-    name: "Ervin Howell",
-    email: "Shanna@melissa.tv",
-    rating: 2,
-    date: moment().startOf("day").fromNow(),
-    isEditable: false,
-    title: "I mean, whatever ....",
-    content:
-      "Next level tbh everyday carry, blog copper mug forage kitsch roof party pickled hammock kale chips tofu. Etsy shoreditch 8-bit microdosing, XOXO viral butcher banh mi humblebrag listicle woke bicycle rights brunch before they sold out ramps.",
-    photo: "https://randomuser.me/api/portraits/men/60.jpg",
-  },
-  {
-    id: 3,
-    name: "Clemthine Rmayn",
-    email: "hisdaughter@rmayn.com",
-    rating: 5,
-    date: moment("20220620", "YYYYMMDD").fromNow(),
-    isEditable: false,
-    title: "Very exclusive !",
-    content:
-      "Jelly sweet roll jelly beans biscuit pie macaroon chocolate donut. Carrot cake caramels pie sweet apple pie tiramisu carrot cake. Marzipan marshmallow croissant tootsie roll lollipop.",
-    photo: "https://randomuser.me/api/portraits/men/61.jpg",
-  },
-];
-
 const Reviews = ({ singleProduct, isOpen, setIsOpen }: IProps) => {
-  const date = moment().format("MMM Do YY");
-  console.log(date);
+  const fakeUnsorted = useAppSelector((state) => state.singleProduct.reviews);
+
+  const fakeReviews = fakeUnsorted
+    .slice()
+    .sort((a, b) => b.date.localeCompare(a.date));
 
   return (
     <section
@@ -85,7 +50,10 @@ const Reviews = ({ singleProduct, isOpen, setIsOpen }: IProps) => {
         {fakeReviews.map((review) => (
           <div key={review.id} className={styles.review}>
             <div className={styles.imageContainer}>
-              <img src={review.photo} alt={review.title} />
+              <img
+                src={review.photo ? review.photo : userImage}
+                alt={review.title}
+              />
             </div>
             <div className={styles.info}>
               <div className={styles.infoTop}>
@@ -111,3 +79,6 @@ const Reviews = ({ singleProduct, isOpen, setIsOpen }: IProps) => {
 };
 
 export default Reviews;
+function getTime(date: string) {
+  throw new Error("Function not implemented.");
+}

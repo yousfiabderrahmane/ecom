@@ -1,5 +1,18 @@
 import { product } from "./../products/types";
 
+interface review {
+  id: number;
+  rating: number;
+  name: string;
+  email: string;
+  date: string;
+  title: string;
+  isEditable: boolean;
+
+  content: string;
+  photo?: string;
+}
+
 export type singleProduct = {
   id: number;
   title: string;
@@ -20,6 +33,7 @@ export type singleProduct = {
 export interface SingleProductInitialType {
   SingleProduct: singleProduct;
   isLoading: boolean;
+  reviews: review[];
   error: string | null;
   cart: cartType;
 }

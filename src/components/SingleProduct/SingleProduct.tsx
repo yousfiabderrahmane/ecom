@@ -31,8 +31,6 @@ const SingleProduct = ({ randomReduction }: IProps) => {
   const cart = useAppSelector((state) => state.singleProduct.cart);
   const dispatch = useAppDispatch();
 
-  console.log(cart);
-
   const exists = favorite.find((product) => product.id === SingleProduct.id);
 
   const inCart = cart.products.find(

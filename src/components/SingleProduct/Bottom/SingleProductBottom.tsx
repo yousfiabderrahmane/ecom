@@ -17,6 +17,30 @@ const SingleProductBottom = () => {
     (state) => state.singleProduct.SingleProduct
   );
 
+  const [review, setReview] = useState({});
+
+  const handleAddToReviews = (
+    name: string,
+    email: string,
+    title: string,
+    content: string,
+    rating: number,
+    id: number,
+    date: string
+  ) => {
+    const newReview = {
+      name,
+      email,
+      title,
+      content,
+      rating,
+      id,
+      date,
+      isEditable: true,
+    };
+    setReview(newReview);
+  };
+
   return (
     <section className={styles.bottomSection}>
       <div className={styles.filterSection}>
