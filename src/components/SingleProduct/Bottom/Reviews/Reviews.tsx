@@ -4,7 +4,7 @@ import { ReactComponent as RatingStar } from "../../../../assets/svg/fillStar.sv
 import moment from "moment";
 import { useEffect, useState } from "react";
 import NewReview from "./NewReview";
-import userImage from "../../../../assets/images/wishBg.jpg";
+import userImage from "../../../../assets/images/21104.png";
 import { useAppSelector } from "../../../../redux/hooks";
 
 interface IProps {
