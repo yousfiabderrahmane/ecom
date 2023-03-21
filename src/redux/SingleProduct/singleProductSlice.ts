@@ -169,6 +169,19 @@ const SingleProductSlice = createSlice({
 
       state.reviews.push(newReview);
     },
+    editReview: (state, action) => {
+      const { name, email, title, content, rating, id } = action.payload;
+
+      const thisReview = state.reviews.find((review) => review.id === id);
+
+      if (thisReview) {
+        thisReview.name = name;
+        thisReview.email = email;
+        thisReview.title = title;
+        thisReview.content = content;
+        thisReview.rating = rating;
+      }
+    },
     refreshReviews: (state) => {
       state.reviews = initialReviews;
     },
@@ -186,6 +199,7 @@ export const {
   decreaseQuantity,
   addReview,
   refreshReviews,
+  editReview,
 } = SingleProductSlice.actions;
 
 export const selectCart = (state: RootState) =>

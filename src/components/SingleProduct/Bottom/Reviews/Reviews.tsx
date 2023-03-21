@@ -1,19 +1,25 @@
 import { singleProduct } from "../../../../redux/SingleProduct/types";
 import styles from "./Reviews.module.scss";
 import { ReactComponent as RatingStar } from "../../../../assets/svg/fillStar.svg";
-import moment from "moment";
-import { useEffect, useState } from "react";
-import NewReview from "./NewReview";
 import userImage from "../../../../assets/images/21104.png";
 import { useAppSelector } from "../../../../redux/hooks";
+import { ReactComponent as EditIcon } from "../../../../assets/svg/editReview.svg";
 
 interface IProps {
   singleProduct: singleProduct;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  setReviewId: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Reviews = ({ singleProduct, isOpen, setIsOpen }: IProps) => {
+const Reviews = ({
+  singleProduct,
+  isOpen,
+  setIsOpen,
+  setIsEditing,
+  setReviewId,
+}: IProps) => {
   const fakeUnsorted = useAppSelector((state) => state.singleProduct.reviews);
 
   const fakeReviews = fakeUnsorted
@@ -56,6 +62,15 @@ const Reviews = ({ singleProduct, isOpen, setIsOpen }: IProps) => {
               />
             </div>
             <div className={styles.info}>
+              {review.isEditable && (
+                <EditIcon
+                  onClick={() => {
+                    setIsEditing(true);
+                    setReviewId(review.id);
+                  }}
+                  className={styles.editIcon}
+                />
+              )}
               <div className={styles.infoTop}>
                 <h4>{review.name}</h4>
                 <div className={styles.stars}>

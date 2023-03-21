@@ -1,32 +1,33 @@
 import { useState } from "react";
-import styles from "./NewReview.module.scss";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
+import styles from "./EditReview.module.scss";
 import Rating from "./Rating";
-import { useAppDispatch } from "../../../../redux/hooks";
-import { addReview } from "../../../../redux/SingleProduct/singleProductSlice";
+import { editReview } from "../../../../redux/SingleProduct/singleProductSlice";
 
 interface IProps {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsEditing: React.Dispatch<React.SetStateAction<boolean>>;
+  reviewId: number;
 }
 
-const NewReview = ({ setIsOpen }: IProps) => {
+const EditReview = ({ setIsEditing, reviewId }: IProps) => {
+  const reviews = useAppSelector((state) => state.singleProduct.reviews);
   const dispatch = useAppDispatch();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [rating, setRating] = useState(0);
+  const thisReview = reviews.find((review) => review.id === reviewId);
+
+  // console.log(thisReview);
+
+  const [name, setName] = useState(thisReview?.name);
+  const [email, setEmail] = useState(thisReview?.email);
+  const [title, setTitle] = useState(thisReview?.title);
+  const [content, setContent] = useState(thisReview?.content);
+  const [rating, setRating] = useState(thisReview?.rating);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    const id = Math.ceil(Math.random() * 999);
-    const date = new Date().toUTCString();
-
-    // Do something with the form data (e.g. submit it to a server)
-    dispatch(addReview({ name, email, title, content, rating, id, date }));
-
-    setIsOpen(false);
+    dispatch(editReview({ name, email, title, content, rating, id: reviewId }));
+    setIsEditing(false);
   };
 
   return (
@@ -34,11 +35,11 @@ const NewReview = ({ setIsOpen }: IProps) => {
       <div
         className={`${styles.addReviewContainer} animate__animated animate__fadeIn animate__faster`}
       >
-        <button className={styles.closeBtn} onClick={() => setIsOpen(false)}>
+        <button className={styles.closeBtn} onClick={() => setIsEditing(false)}>
           X
         </button>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <h3>Your criticism matters</h3>
+          <h3>You changed your mind ?</h3>
 
           <label htmlFor="name">Name:</label>
           <input
@@ -78,7 +79,7 @@ const NewReview = ({ setIsOpen }: IProps) => {
 
           <Rating setRating={setRating} />
           <button type="submit" className={styles.submitBtn}>
-            Add
+            Edit
           </button>
         </form>
       </div>
@@ -86,4 +87,4 @@ const NewReview = ({ setIsOpen }: IProps) => {
   );
 };
 
-export default NewReview;
+export default EditReview;

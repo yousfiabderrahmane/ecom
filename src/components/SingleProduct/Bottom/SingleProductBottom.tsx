@@ -5,6 +5,7 @@ import { useAppSelector } from "../../../redux/hooks";
 import Shipping from "./Shipping/Shipping";
 import Reviews from "./Reviews/Reviews";
 import NewReview from "./Reviews/NewReview";
+import EditReview from "./Reviews/EditReview";
 
 const sections = ["Details", "Reviews", "Shipping"];
 
@@ -12,34 +13,12 @@ const SingleProductBottom = () => {
   const [currentSection, setCurrentSection] = useState<string>("Details");
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [reviewId, setReviewId] = useState<number>(0);
 
   const singleProduct = useAppSelector(
     (state) => state.singleProduct.SingleProduct
   );
-
-  const [review, setReview] = useState({});
-
-  const handleAddToReviews = (
-    name: string,
-    email: string,
-    title: string,
-    content: string,
-    rating: number,
-    id: number,
-    date: string
-  ) => {
-    const newReview = {
-      name,
-      email,
-      title,
-      content,
-      rating,
-      id,
-      date,
-      isEditable: true,
-    };
-    setReview(newReview);
-  };
 
   return (
     <section className={styles.bottomSection}>
@@ -67,10 +46,15 @@ const SingleProductBottom = () => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             singleProduct={singleProduct}
+            setIsEditing={setIsEditing}
+            setReviewId={setReviewId}
           />
         )}
       </div>
       {isOpen && <NewReview setIsOpen={setIsOpen} />}
+      {isEditing && (
+        <EditReview reviewId={reviewId} setIsEditing={setIsEditing} />
+      )}
     </section>
   );
 };

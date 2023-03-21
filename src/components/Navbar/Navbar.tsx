@@ -33,6 +33,8 @@ export const Navbar = () => {
     window.scrollY >= 5 ? setScroll(true) : setScroll(false);
   };
 
+  const [animate, setAnimate] = useState(true);
+
   useEffect(() => {
     if (location.pathname.slice(0, 9) != "/product/") {
       window.addEventListener("scroll", changeNav);
@@ -44,11 +46,10 @@ export const Navbar = () => {
   return (
     <>
       <nav
-        className={
-          scroll || error
-            ? `${styles.navbar} ${styles.navbarScroll} animate__animated animate__zoomIn`
-            : `${styles.navbar} animate__animated animate__zoomIn`
-        }
+        className={`${styles.navbar} ${
+          styles.navbarScroll
+        }  animate__animated ${animate && "animate__fadeInDown"} animate__once`}
+        onAnimationEnd={() => setAnimate(false)}
       >
         <div className={styles.iconContainer}>
           <button

@@ -38,7 +38,7 @@ function App() {
             <Route path="/wishlist" element={<LazyWish />} />
             <Route path="/product/:id" element={<LazySingleProductPage />} />
           </Routes>
-          {/* <Footer /> */}
+          <Footer />
         </Suspense>
       </BrowserRouter>
     </div>
