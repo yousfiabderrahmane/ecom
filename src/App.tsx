@@ -4,6 +4,7 @@ import { Suspense, useEffect } from "react";
 import React from "react";
 import { Loading } from "./components/LoadingGif/Loading";
 import { Footer } from "./components/Footer/Footer";
+import { useAppSelector } from "./redux/hooks";
 // import { Landing } from "./pages/Landing";
 // import { Shop } from "./pages/Shop";
 // import { SingleCategoryPage } from "./pages/SingleCategoryPage";
@@ -19,6 +20,9 @@ const LazySingleCategoryPage = React.lazy(
 );
 
 function App() {
+  const singleProductLoading = useAppSelector(
+    (state) => state.singleProduct.isLoading
+  );
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -38,7 +42,7 @@ function App() {
             <Route path="/wishlist" element={<LazyWish />} />
             <Route path="/product/:id" element={<LazySingleProductPage />} />
           </Routes>
-          <Footer />
+          {!singleProductLoading && <Footer />}
         </Suspense>
       </BrowserRouter>
     </div>
