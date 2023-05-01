@@ -1,4 +1,3 @@
-import { product } from "./../products/types";
 import { RootState } from "./../store";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import {
@@ -6,7 +5,6 @@ import {
   initialSingleProduct,
   singleProduct,
 } from "./types";
-import moment from "moment";
 
 const initialReviews = [
   {

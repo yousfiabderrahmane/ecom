@@ -7,7 +7,6 @@ const initialState: ProducstInitialType = {
   isLoading: false,
   error: null,
   favoriteProducts: [],
-
   filter: "all",
 };
 

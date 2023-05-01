@@ -5,9 +5,6 @@ import React from "react";
 import { Loading } from "./components/LoadingGif/Loading";
 import { Footer } from "./components/Footer/Footer";
 import { useAppSelector } from "./redux/hooks";
-// import { Landing } from "./pages/Landing";
-// import { Shop } from "./pages/Shop";
-// import { SingleCategoryPage } from "./pages/SingleCategoryPage";
 
 const LazySingleProductPage = React.lazy(
   () => import("./pages/SingleProductPage")
