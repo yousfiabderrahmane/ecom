@@ -15,8 +15,6 @@ const EditReview = ({ setIsEditing, reviewId }: IProps) => {
 
   const thisReview = reviews.find((review) => review.id === reviewId);
 
-  // console.log(thisReview);
-
   const [name, setName] = useState(thisReview?.name);
   const [email, setEmail] = useState(thisReview?.email);
   const [title, setTitle] = useState(thisReview?.title);

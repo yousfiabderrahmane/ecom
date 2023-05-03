@@ -94,6 +94,3 @@ const Reviews = ({
 };
 
 export default Reviews;
-function getTime(date: string) {
-  throw new Error("Function not implemented.");
-}
