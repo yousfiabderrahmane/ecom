@@ -14,22 +14,21 @@ import Error from "../Error/Error";
 
 export const ShopList = () => {
   //app state
-  const favorites = useAppSelector(selectFavorites);
   const products = useAppSelector((state) => state.products.products);
-  const [thisCategoryProducts, setThisCategoryProducts] = useState(products);
   const isLoading = useAppSelector((state) => state.products.isLoading);
   const error = useAppSelector((state) => state.products.error);
-  const dispatch = useAppDispatch();
+  const favorites = useAppSelector(selectFavorites);
   const filter = useAppSelector(selectFilter);
-  //pagination state
+  const dispatch = useAppDispatch();
 
+  const [thisCategoryProducts, setThisCategoryProducts] = useState(products);
+
+  //pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage] = useState(3);
 
   const lastCardIndex = currentPage * cardsPerPage;
   const firstCardIndex = lastCardIndex - cardsPerPage;
-
-  const currentProductsInitial = products.slice(firstCardIndex, lastCardIndex);
 
   const currentProducts = thisCategoryProducts.slice(
     firstCardIndex,
@@ -101,7 +100,7 @@ export const ShopList = () => {
                     className={`${styles.productsGridContainer} animate__animated animate__fadeIn`}
                   >
                     {filter === "all" &&
-                      currentProductsInitial.map((product) => (
+                      currentProducts.map((product) => (
                         <Product key={product.id} product={product} />
                       ))}
                     {filter !== "all" &&

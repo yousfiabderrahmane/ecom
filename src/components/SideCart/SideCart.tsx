@@ -19,8 +19,6 @@ export const SideCart = ({ setIsOpen, isOpen }: SideCartProps) => {
 
   const products = useAppSelector((state) => state.singleProduct.cart.products);
 
-  const cart = useAppSelector((state) => state.singleProduct.cart);
-
   return (
     <div className={`${isOpen && styles.sideCartOverlay} `}>
       <div className={`${styles.sideCart} ${isOpen && styles.sideCartOpen}`}>

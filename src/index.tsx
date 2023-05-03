@@ -4,7 +4,10 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import App from "./App";
 import "./index.scss";
+import { useAppDispatch } from "./redux/hooks";
+import { getProductsRequested } from "./redux/products/productsSlice";
 
+store.dispatch(getProductsRequested());
 const container = document.getElementById("root")!;
 const root = createRoot(container);
 

@@ -100,7 +100,7 @@ export const CategoryContent = ({
             ? sortedArr.map((product) => (
                 <Product key={product.id} product={product} />
               ))
-            : thisProducts.map((product) => (
+            : sortedArr.map((product) => (
                 <Product key={product.id} product={product} />
               ))}
         </section>
@@ -110,7 +110,7 @@ export const CategoryContent = ({
             ? sortedArr.map((product) => (
                 <Horizontal key={product.id} product={product} />
               ))
-            : thisProducts.map((product) => (
+            : sortedArr.map((product) => (
                 <Horizontal key={product.id} product={product} />
               ))}
         </section>

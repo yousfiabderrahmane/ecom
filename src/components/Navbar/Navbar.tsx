@@ -17,8 +17,6 @@ export const Navbar = () => {
   const [showList, setShowList] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean | undefined>(false);
 
-  const error = useAppSelector((state) => state.products.error);
-
   const navigate = useNavigate();
   const location = useLocation();
 
