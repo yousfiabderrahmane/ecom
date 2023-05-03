@@ -17,6 +17,5 @@ export interface ProducstInitialType {
   isLoading: boolean;
   error: null | string;
   favoriteProducts: product[];
-
   filter: string;
 }

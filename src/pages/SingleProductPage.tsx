@@ -13,7 +13,6 @@ const SingleProductPage = () => {
   const { id } = useParams();
   const dispatch = useAppDispatch();
 
-  const randomReduction = Math.ceil(Math.random() * 40);
   const isLoading = useAppSelector((state) => state.singleProduct.isLoading);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const SingleProductPage = () => {
       ) : (
         <>
           <SingleProductHeader />
-          <SingleProduct randomReduction={randomReduction} />
+          <SingleProduct />
         </>
       )}
     </section>

@@ -6,7 +6,7 @@ import { ReactComponent as FilledHeart } from "../../assets/svg/filledheart.svg"
 import { ReactComponent as Question } from "../../assets/svg/question.svg";
 import { ReactComponent as Gift } from "../../assets/svg/singleGift.svg";
 import { ReactComponent as Delivery } from "../../assets/svg/singleDelivery.svg";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { toggleFavorite } from "../../redux/products/productsSlice";
 import {
   addToCart,
@@ -22,10 +22,12 @@ interface IProps {
   randomReduction: number;
 }
 
-const SingleProduct = ({ randomReduction }: IProps) => {
+const SingleProduct = () => {
   const SingleProduct = useAppSelector(
     (state) => state.singleProduct.SingleProduct
   );
+
+  const randomReduction = useMemo(() => Math.ceil(Math.random() * 40), []);
 
   const favorite = useAppSelector((state) => state.products.favoriteProducts);
   const cart = useAppSelector((state) => state.singleProduct.cart);

@@ -10,20 +10,16 @@ interface CategoryProps {
 }
 
 export const Category = ({ category }: CategoryProps) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   //state
-  const products = useAppSelector(selectAllProducts);
   const [option, setOption] = useState("highest");
   const [currentCategory, setCurrentCategory] = useState<string>("");
   const [showMode, setShowMode] = useState<string>("dots");
+  const error = useAppSelector((state) => state.products.error);
 
+  const products = useAppSelector(selectAllProducts);
   const thisCategoryProducts = products.filter(
     (product) => product.category === currentCategory
   );
-
-  const error = useAppSelector((state) => state.products.error);
 
   useEffect(() => {
     if (category === "Women") {
@@ -36,6 +32,10 @@ export const Category = ({ category }: CategoryProps) => {
       setCurrentCategory("electronics");
     }
   }, [category]);
+  //scroll
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -44,8 +44,7 @@ export const Category = ({ category }: CategoryProps) => {
           <FilterCategory
             setShowMode={setShowMode}
             showMode={showMode}
-            thisCategoryProducts={thisCategoryProducts}
-            category={category}
+            totalProducts={thisCategoryProducts.length}
             setOption={setOption}
           />
           <CategoryContent

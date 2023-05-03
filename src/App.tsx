@@ -20,6 +20,12 @@ function App() {
   const singleProductLoading = useAppSelector(
     (state) => state.singleProduct.isLoading
   );
+
+  const items = useAppSelector((state) => state.singleProduct.cart.totalItems);
+  const price = useAppSelector((state) => state.singleProduct.cart.totalPrice);
+
+  console.log(`Totalitems : ${items} , price : ${price}`);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

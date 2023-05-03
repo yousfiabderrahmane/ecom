@@ -2,21 +2,17 @@ import styles from "./FilterCategory.module.scss";
 import { ReactComponent as Listed } from "../../../assets/svg/listed.svg";
 import { ReactComponent as Dots } from "../../../assets/svg/fourdotslist.svg";
 import { useAppSelector } from "../../../redux/hooks";
-import { selectAllProducts } from "../../../redux/products/productsSlice";
-import { useEffect, useState } from "react";
 import { product } from "../../../redux/products/types";
 
 interface FilterProps {
-  category: string;
-  thisCategoryProducts: product[];
+  totalProducts: number;
   setOption: React.Dispatch<React.SetStateAction<string>>;
   showMode: string;
   setShowMode: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const FilterCategory = ({
-  category,
-  thisCategoryProducts,
+  totalProducts,
   setOption,
   showMode,
   setShowMode,
@@ -42,9 +38,7 @@ export const FilterCategory = ({
         </div>
         <p>
           {" "}
-          {loading
-            ? `Calculating...`
-            : `${thisCategoryProducts.length} Products Found `}{" "}
+          {loading ? `Calculating...` : `${totalProducts} Products Found `}{" "}
         </p>
       </div>
       <hr />
