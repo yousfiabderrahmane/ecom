@@ -1,0 +1,14 @@
+.primary {
+  background-color: red;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+}
+.secondary {
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  font-size: 20px;
+  color: white;
+}
