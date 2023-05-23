@@ -1,14 +1,57 @@
-.primary {
-  background-color: red;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  color: white;
+/* $primaryColor: #edf1d6;
+$secondaryColor: #9dc08b;
+$tertiaryColor: #609966;
+$quaternaryColor: #40513b; */
+
+/* $titlesFont: "Pacifico", cursive;
+$paragraphsFont: "Poppins", sans-serif; */
+
+
+.products {
+  position: absolute;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #9dc08b;
+  color: #40513b;
+  border: 2px solid #40513b;
+  font-weight: bold;
 }
-.secondary {
-  border: none;
-  border-radius: 5px;
-  background-color: green;
-  font-size: 20px;
-  color: white;
+
+.repair {
+  z-index: 10;
+  padding: 5px 10px;
+  font-family: "Poppins", sans-serif; ;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+
+}
+.repair:hover {
+  color: #fff;
+
+}
+.repair::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform: scaleX(0);
+
+}
+.repair:hover::before{
+  transform: unset;
+
 }

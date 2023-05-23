@@ -1,13 +1,14 @@
 import React from "react";
+
 import "./Button.css";
 
 interface ButtonProps {
-  variant: string;
+  variant: "products" | "repair";
   label: string;
 }
 
 export const Button = ({
-  variant = "primary",
+  variant = "products",
   label,
   ...props
 }: ButtonProps) => {
