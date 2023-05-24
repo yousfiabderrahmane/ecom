@@ -1,0 +1,12 @@
+@import "../../variables";
+
+.title {
+  font-weight: bold;
+  font-size: 80px;
+  color: $primaryColor;
+  font-family: $titlesFont;
+}
+.subtitle {
+  color: white;
+  font-weight: bold;
+}
