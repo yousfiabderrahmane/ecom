@@ -115,3 +115,20 @@
   background-color: $secondaryColor;
   color: white;
 }
+
+.size {
+  padding: 4px 8px;
+  background-color: transparent;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.activeSize {
+  background-color: black;
+  color: white;
+}

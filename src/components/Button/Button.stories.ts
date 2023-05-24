@@ -25,6 +25,10 @@ export const Hover: Story = {
 
 export const Click: Story = {
   argTypes: {
+    variant: {
+      control: "inline-radio",
+      options: ["category", "size"],
+    },
     active: { control: "boolean" }, // Enable the control for Click story
   },
   args: {

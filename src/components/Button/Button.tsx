@@ -17,7 +17,9 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`${styles[variant]} ${active && styles.active}`}
+      className={`${styles[variant]} ${
+        active && variant === "category" && styles.active
+      } ${active && variant === "size" && styles.activeSize}`}
       {...props}
     >
       {label}
