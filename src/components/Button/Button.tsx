@@ -19,7 +19,8 @@ export const Button = ({
     <button
       className={`${styles[variant]} ${
         active && variant === "category" && styles.active
-      } ${active && variant === "size" && styles.activeSize}`}
+      } ${active && variant === "size" && styles.activeSize}
+      ${active && variant === "color" && styles.activeColor}`}
       {...props}
     >
       {label}

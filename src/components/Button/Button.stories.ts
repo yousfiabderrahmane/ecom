@@ -27,7 +27,7 @@ export const Click: Story = {
   argTypes: {
     variant: {
       control: "inline-radio",
-      options: ["category", "size"],
+      options: ["category", "size", "color"],
     },
     active: { control: "boolean" }, // Enable the control for Click story
   },
