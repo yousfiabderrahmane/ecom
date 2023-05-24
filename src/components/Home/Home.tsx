@@ -23,18 +23,6 @@ export const Home = () => {
           title=" Welcome To AyShop"
           subtitle="Keep The Summer Vibe Alive"
         />
-        {/* <div>
-          <h1
-            className={`${styles.homeTitle} animate__animated animate__fadeInDown`}
-          >
-            Welcome To AyShop
-          </h1>
-          <p
-            className={`${styles.subInfo} animate__animated animate__fadeInDown animate__delay-1s`}
-          >
-            Keep The Summer Vibe Alive
-          </p>
-        </div> */}
 
         <div>
           <Link to={"/shop"}>
