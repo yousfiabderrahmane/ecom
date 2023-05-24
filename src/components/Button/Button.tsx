@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Button.css";
+import styles from "./Button.module.scss";
 
 interface ButtonProps {
   variant: "products" | "repair";
@@ -13,7 +13,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button className={variant} {...props}>
+    <button className={styles[variant]} {...props}>
       {label}
     </button>
   );
