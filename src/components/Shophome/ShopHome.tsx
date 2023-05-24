@@ -3,6 +3,7 @@ import shopBg from "../../assets/images/shopBg.jpg";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useAppSelector } from "../../redux/hooks";
 import Error from "../Error/Error";
+import { Heading } from "../Heading/Heading";
 
 export const ShopHome = () => {
   const error = useAppSelector((state) => state.products.error);
@@ -25,18 +26,10 @@ export const ShopHome = () => {
         <Error error={error} />
       ) : (
         <div className={styles.content}>
-          <div>
-            <h1
-              className={`${styles.homeTitle} animate__animated animate__fadeInDown`}
-            >
-              Our Shop
-            </h1>
-            <p
-              className={`${styles.subInfo} animate__animated animate__fadeInDown animate__delay-1s`}
-            >
-              When the product is right, you don’t have to be a great Marketer.
-            </p>
-          </div>
+          <Heading
+            title="Our Shop"
+            subtitle="When the product is right, you don’t have to be a great Marketer."
+          />
         </div>
       )}
     </section>

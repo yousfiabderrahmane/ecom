@@ -3,6 +3,7 @@ import BackGroundImage from "../../assets/images/home-background.jpg";
 import styles from "./Home.module.scss";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
+import { Heading } from "../Heading/Heading";
 
 export const Home = () => {
   return (
@@ -18,7 +19,11 @@ export const Home = () => {
       </div>
 
       <div className={styles.content}>
-        <div>
+        <Heading
+          title=" Welcome To AyShop"
+          subtitle="Keep The Summer Vibe Alive"
+        />
+        {/* <div>
           <h1
             className={`${styles.homeTitle} animate__animated animate__fadeInDown`}
           >
@@ -29,7 +34,7 @@ export const Home = () => {
           >
             Keep The Summer Vibe Alive
           </p>
-        </div>
+        </div> */}
 
         <div>
           <Link to={"/shop"}>
