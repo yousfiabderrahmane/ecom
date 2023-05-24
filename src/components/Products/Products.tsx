@@ -5,6 +5,7 @@ import jeweleryBg from "../../assets/images/jewelery.jpg";
 import electronicsBg from "../../assets/images/electronics.jpg";
 import { AnimationOnScroll } from "react-animation-on-scroll/dist/js/components";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../Button/Button";
 
 export const Products = () => {
   const navigate = useNavigate();
@@ -23,12 +24,12 @@ export const Products = () => {
         <div className={styles.angryGrid}>
           <div onClick={() => handleRedirect("Jewelery")} className={styles.a}>
             <img className={styles.image} src={jeweleryBg} alt="jewelery" />
-            <button className={styles.redirectBtn}>Jewelery</button>
+            <Button variant="products" label="Jewelery" />
           </div>
           <div onClick={() => handleRedirect("Women")} className={styles.b}>
             {" "}
             <img className={styles.image} src={womenBg} alt="women" />
-            <button className={styles.redirectBtn}>Women</button>
+            <Button variant="products" label="Women" />
           </div>
           <div
             onClick={() => handleRedirect("Electronics")}
@@ -39,11 +40,11 @@ export const Products = () => {
               src={electronicsBg}
               alt="electronics"
             />
-            <button className={styles.redirectBtn}>Electronics</button>
+            <Button variant="products" label="Electronics" />
           </div>
           <div onClick={() => handleRedirect("Men")} className={styles.d}>
             <img className={styles.image} src={menBg} alt="men" />
-            <button className={styles.redirectBtn}>Men</button>
+            <Button variant="products" label="Men" />
           </div>
         </div>
       </AnimationOnScroll>

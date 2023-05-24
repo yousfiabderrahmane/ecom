@@ -17,9 +17,23 @@ export const Hover: Story = {
   argTypes: {
     variant: {
       control: "inline-radio",
-      options: ["products", "repair", "shop", "nav"],
+      options: ["products", "repair", "shop"],
     },
     active: { table: { disable: true } }, // Disable the control for Hover story
+  },
+};
+
+export const Nav: Story = {
+  argTypes: {
+    icon: {
+      control: "inline-radio",
+      options: ["cart", "wish"],
+    },
+    active: { table: { disable: true } }, // Disable the control for Hover story
+  },
+  args: {
+    icon: "cart",
+    variant: "nav",
   },
 };
 

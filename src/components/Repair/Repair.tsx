@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./Repair.module.scss";
+import { Button } from "../Button/Button";
 
 export const Repair = () => {
   return (
@@ -11,7 +12,7 @@ export const Repair = () => {
         </h1>
         <div>
           <Link to={"/shop"}>
-            <button>Explore More</button>
+            <Button variant="repair" label="Explore More" />
           </Link>
         </div>
       </div>

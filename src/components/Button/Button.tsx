@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as NavCart } from "../../assets/svg/nav-cart.svg";
+import { ReactComponent as NavStar } from "../../assets/svg/nav-star.svg";
 
 import styles from "./Button.module.scss";
 
@@ -7,12 +8,14 @@ interface ButtonProps {
   variant: string;
   label: string;
   active?: boolean;
+  icon?: string;
 }
 
 export const Button = ({
   variant = "products",
   label,
   active,
+  icon,
   ...props
 }: ButtonProps) => {
   return (
@@ -24,7 +27,8 @@ export const Button = ({
       {...props}
     >
       {label}
-      {variant === "nav" && <NavCart fill="white" className={styles.icon} />}
+      {icon === "cart" && <NavCart fill="white" className={styles.icon} />}
+      {icon === "wish" && <NavStar fill="white" className={styles.icon} />}
     </button>
   );
 };

@@ -10,6 +10,7 @@ import { ReactComponent as DownArrow } from "../../assets/svg/arrow-down.svg";
 import { ReactComponent as UpArrow } from "../../assets/svg/arrow-up.svg";
 import styles from "./Navbar.module.scss";
 import { useAppSelector } from "../../redux/hooks";
+import { Button } from "../Button/Button";
 
 const productsList = ["Men", "Jewelery", "Electronics", "Women"];
 
@@ -115,6 +116,7 @@ export const Navbar = () => {
           }}
           className={styles.iconContainer}
         >
+          {/* <Button label="Cart" variant="nav" icon="cart"/> */}
           <button className={styles.navRedirectButtons}>
             Cart <NavCart fill="white" className={styles.icon} />
           </button>
